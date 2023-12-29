@@ -13,6 +13,11 @@
 * Requires Powershell version 7 or above.
 * Requires port-forwarding, or a port-forwarding service like L2H or Ngrok.
 
+## General info
+> USSR isn't user-friendly, and the paths need to be configured according to your path.
+> Drive letters (are) missing, and need to be added manually.
+> If you do not know how to configure this, a video tutorial is coming soon.
+
 ## Why?
 This project started as a funny switch, but I spent over 5 hours making this dumb funny clicky server open-y haha omg switch. Kill me. If you have a Minecraft server, an SMP, and you don't want to use something like Aternos, however, you don't want the prestigous Day count in the server to go up because you left it online for 2 days, well, this is a use for the USSR.
 
