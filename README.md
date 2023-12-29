@@ -12,6 +12,7 @@
 * Needs Python libraries: os, subprocess, and flask
 * Requires Powershell version 7 or above.
 * Requires port-forwarding, or a port-forwarding service like L2H or Ngrok.
+* A Minecraft Server 🤯🤯🤯🤯
 
 ## General info
 > USSR isn't user-friendly, and the paths need to be configured according to your path.
