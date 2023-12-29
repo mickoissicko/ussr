@@ -14,3 +14,7 @@ It is NOT user friendly... at all. Good luck installing it. When I get around to
 ## Installation guide
 * Read comments, figure it out
 * Video tutorial coming soon
+
+## R-CON
+> RCON is used to (gracefully) stop the server and reduce corruption chance, and also save the world. If the server is forcefully stopped, it's not nice. It's like running and falling. You know what I mean.
+> 
