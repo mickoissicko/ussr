@@ -67,7 +67,7 @@
         <!--dont touch start/stop buttons they signal or send (open) requests to ussr.py-->
         <button onclick="startScript()">Start</button>
         <button onclick="stopScript()">Stop</button>
-        <button type="button" onclick="redirectToYouTube()">Creative Mode</button>
+        <button type="button" onclick="stopScriptOnWebsite()">Stop on Website</button>
     </div>
 
     <script>
@@ -90,9 +90,15 @@
                 console.error(error);
             }
         }
-        <!--add a function here for the Creative Mode button, or you can delete that button-->
-        function redirectToYouTube() {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
+        async function stopScriptOnWebsite() {
+            try {
+                const response = await fetch('/stop-on-website');
+                const message = await response.text();
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
         }
     </script>
 </body>
