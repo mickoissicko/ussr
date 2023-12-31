@@ -19,7 +19,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 2; /* Ensure content is on top of the background */
+            z-index: 2;
         }
 
         button {
@@ -58,42 +58,158 @@
                 opacity: 0;
             }
         }
+
+        #shutdownBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+            animation: flashShutdown 3s infinite;
+        }
+
+        @keyframes flashShutdown {
+            0%, 100% {
+                background-color: rgb(255, 25, 0); 
+            }
+            33% {
+                background-color: rgb(255, 200, 0); 
+            }
+            66% {
+                background-color: #ff8c00;
+            }
+        }
+
+        #tipText {
+            font-size: 20px;
+            color: white;
+            animation: flash 0.863494s infinite;
+        }
+
+        @keyframes flash {
+            0%, 100% {
+                color: white;
+            }
+            50% {
+                color: rgb(255, 255, 0);
+                color: rgb(255, 217, 0)
+            }
+        }
+
+        #statusIndicator {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        #statusIndicator p {
+            margin: 0;
+        }
+
+        #statusIndicator span {
+            font-weight: bold;
+        }
+
+        #statusIndicator p span.online {
+            color: green;
+        }
+
+        #statusIndicator p span.offline {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div id="content">
         <h1>Minecraft Server Panel</h1>
-        <!--add a function here for the Creative Mode button, or you can delete that button-->
-        <!--dont touch start/stop buttons they signal or send (open) requests to ussr.py-->
-        <button onclick="startScript()">Start</button>
-        <button onclick="stopScript()">Stop</button>
-        <button type="button" onclick="stopScriptOnWebsite()">Stop on Website</button>
-    </div>
+        
+        <div id="tipText">Please proceed with Shutdown when you are sure nobody else will log on in order to make sure Mick's PC doesn't explode.</div>
 
+        <div id="statusIndicator">
+            {% if server_status %}
+                <p>Status: <span class="online">Online</span></p>
+            {% else %}
+                <p>Status: <span class="offline">Offline</span></p>
+            {% endif %}
+        </div>
+        
+        <button id="start" onclick="start()">Start</button>
+        <button id="stop" onclick="stop()">Stop</button>
+        <button type="button" onclick="redirectToYouTube()">Creative Mode</button>
+        <button id="shutdownBtn" onclick="confirmShutdown()">Shutdown</button>
+
+    </div>
+    <div id="centeredTipText">TIP: Please wait at least 4 minutes before trying again or contacting the website administrator. </div>
+</div>
+    <div>
+        <style>
+        #centeredTipText {
+            font-size: 18px;
+            color: #ff0000; 
+            text-align: center;
+            margin-bottom: -500px;
+        }
+        </style>
     <script>
-        async function startScript() {
+
+                /* NON FUNCTIONAL // PLACEHOLDER // DEBUGGING TEST SCRIPT */
+                async function test() {
+
+                setTimeout(() => {window.location.href=window.location.href}, 2000);
+
+                try {
+                const response = await fetch ('/test');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function confirmShutdown() {
+            if (confirm("Are you sure? This means you won't be able to play the SMP again until Mick starts the server again.")) {
+                executeShutdown();
+            }
+        }
+
+        async function start() {
             try {
+
+                setTimeout(() => {window.location.href=window.location.href}, 15930);
+
                 const response = await fetch('/start');
                 const message = await response.text();
+
                 console.log(message);
             } catch (error) {
                 console.error(error);
             }
         }
 
-        async function stopScript() {
+        async function stop() {
             try {
+
+                setTimeout(() => {window.location.href=window.location.href}, 13930);
+
                 const response = await fetch('/stop');
                 const message = await response.text();
+
                 console.log(message);
             } catch (error) {
                 console.error(error);
             }
         }
+        
+        function redirectToYouTube() {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }
 
-        async function stopScriptOnWebsite() {
+        async function executeShutdown() {
             try {
-                const response = await fetch('/stop-on-website');
+                const response = await fetch('/shutdown');
                 const message = await response.text();
                 console.log(message);
             } catch (error) {
