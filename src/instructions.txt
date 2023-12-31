@@ -1,0 +1,4 @@
+You need to edit ussr-ssl.py to represent your scripts' path, and change drive letter.
+Remove proxy path if you don't use proxies
+This needs some modification to get it running, video tutorial coming soon, so don't worry.
+Remember to run ussr-ssl.py and your port-forwarding service in a powershell window. If you are manually port-forwarding, you do not need to worry about this.
