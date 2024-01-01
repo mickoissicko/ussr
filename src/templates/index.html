@@ -130,8 +130,10 @@
         <div id="statusIndicator">
             {% if server_status %}
                 <p>Status: <span class="online">Online</span></p>
+                <p id="playerCount">Fetching...</p>
             {% else %}
                 <p>Status: <span class="offline">Offline</span></p>
+                <p id="playerCount" style="color: gray;">Player count: None</p>
             {% endif %}
         </div>
         
@@ -216,6 +218,32 @@
                 console.error(error);
             }
         }
+
+        async function getServerInfo() {
+        try {
+            const response = await fetch('/server_info');
+            const info = await response.text();
+            updatePlayerCount(info);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function updatePlayerCount(serverInfo) {
+        const match = serverInfo.match(/There are (\d+) of a max of (\d+) players online: (.+)/);
+        if (match) {
+            const onlineCount = parseInt(match[1]);
+            const maxCount = parseInt(match[2]);
+            const players = match[3];
+            document.getElementById('playerCount').innerText = `Player count: ${onlineCount} of ${maxCount} (${players})`;
+        } else {
+            document.getElementById('playerCount').innerText = "Player count: None";
+        }
+    }
+
+    getServerInfo();
+    getPlayerCount();
+    
     </script>
 </body>
 </html>
