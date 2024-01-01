@@ -36,6 +36,35 @@ def execute_script(script_name):
 
     if process.returncode != 0:
         raise Exception(f"Script execution failed with return code {process.returncode}")
+    
+def get_online_players():
+    try:
+        with mcrcon.MCRcon('localhost', 'root_admin', 25575) as client:
+            response = client.command('/list')
+            player_list = response.split(':')[-1].strip().split(', ')
+            return player_list
+    except Exception as e:
+        print(f"Error getting online players: {e}")
+        return []
+
+@app.route('/online_players')
+def online_players():
+    players = get_online_players()
+    return ','.join(players)
+
+def get_server_info():
+    try:
+        with mcrcon.MCRcon('localhost', 'root_admin', 25575) as client:
+            response = client.command('/list')
+            return response
+    except Exception as e:
+        print(f"Error getting server info: {e}")
+        return ""
+
+@app.route('/server_info')
+def server_info():
+    info = get_server_info()
+    return info
 
 @app.route('/test')
 def test():
@@ -79,4 +108,4 @@ def shutdown():
         return "Error executing the shutdown script!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=443, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
