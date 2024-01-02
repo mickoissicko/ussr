@@ -11,7 +11,8 @@
             margin: 0 auto;
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #fff;
+            background-color: #000;
         }
 
         h1, h2, h4 {
@@ -19,7 +20,7 @@
         }
 
         p {
-            color: #666;
+            color: #ccc;
         }
 
         ul, ol {
@@ -42,10 +43,36 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tabs a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #555;
+        }
+
+        .tabs a:hover {
+            background-color: #777;
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="tabs">
+        <a href="https://mickoissicko.github.io/projects/ussr/tutorial" target="_blank">Tutorial</a>
+        <a href="https://mickoissicko.github.io/projects/ussr/installation" target="_blank">Installation</a>
+        <a href="https://mickoissicko.github.io/projects/ussr/configuration" target="_blank">Configuration</a>
+    </div>
 
     <h1>Universal Server Start Remote (USSR)</h1>
 
@@ -93,9 +120,9 @@
 
     <h2>Good port-forwarding services</h2>
     <ul>
-        <li><a href="https://ngrok.com/">Ngrok</a></li>
-        <li><a href="https://packetriot.com/">Packetriot</a></li>
-        <li><a href="https://telebit.cloud/">Telebit</a></li>
+        <li><a href="https://ngrok.com/" target="_blank">Ngrok</a></li>
+        <li><a href="https://packetriot.com/" target="_blank">Packetriot</a></li>
+        <li><a href="https://telebit.cloud/" target="_blank">Telebit</a></li>
     </ul>
 
     <h2>R-CON</h2>
