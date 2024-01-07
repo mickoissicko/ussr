@@ -231,3 +231,40 @@ You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
 Select the region closest to your friends.
 
 IN is India, AP is Asia Pacific, EU is Europe, AU is Australia, and US is the United States.
+
+## Windows installation
+
+Step 1 **Install ngrok**
+
+Install [ngrok](ngrok.com). You can choose the [64-bit version](https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip) or the [32-bit version](https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-386.zip). 
+
+Step 2 **Making an account and logging in**
+
+Make an account on the [ngrok](https://dashboard.ngrok.com/signup) website.
+
+After you have made the account, navigate to the [setup](https://dashboard.ngrok.com/get-started/setup/linux) page
+
+Open a command prompt window in the folder where you downloaded ngrok, and type
+
+`ngrok.exe config add-authtoken THE-AUTHTOKEN-GIVEN`
+
+Step 3 **Starting the service**
+
+Open a command prompt window in the folder where you downloaded ngrok.
+
+You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
+
+`ngrok tcp --region eu 25565`
+
+`ngrok tcp --region ap 25565`
+
+`ngrok tcp --region in 25565`
+
+`ngrok tcp --region au 25565`
+
+`ngrok tcp --region us 25565`
+
+Select the region closest to your friends.
+
+IN is India, AP is Asia Pacific, EU is Europe, AU is Australia, and US is the United States.
+
