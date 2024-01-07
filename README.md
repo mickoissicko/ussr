@@ -7,7 +7,7 @@
 > NOTE: This tutorial is for a Fabric server. If you want to use something like PaperMC, Glowstone, or Airplane, figure it out -- it isn't rocket science.
 ## For Arch
 
-Step 1. **Accquire the file**
+Step 1 **Accquire the file**
 
 `mkdir server`
 
@@ -17,11 +17,11 @@ Step 1. **Accquire the file**
 
 `mv fabric-server-mc.1.19.4-loader.0.15.3-launcher.1.0.0.jar fabric.jar`
 
-Step 2. **Install java**
+Step 2 **Install java**
 
 `sudo pacman -S jdk-openjdk`
 
-Step 3. **Initialise and configure**
+Step 3 **Initialise and configure**
 
 `cd ~/server`
 
@@ -41,13 +41,17 @@ In the server.properties file, change the rcon port to 25575, the rcon password 
 
 ## For Windows
 
+Step 1 **Downloading Java**
+
 Download [Liberica JDK](https://download.bell-sw.com/java/21.0.1+12/bellsoft-jdk21.0.1+12-windows-amd64.msi)
 
-Change the name of this file to fabric.jar
+Step 2 **Initalise and start**
 
 Make a folder somewhere safe, and name it `server`.
 
 Download the [Fabric server software](https://meta.fabricmc.net/v2/versions/loader/1.19.4/0.15.3/1.0.0/server/jar) in the folder
+
+Change the name of this file to fabric.jar
 
 Create a text document (.txt) named eula.txt and in the contents of the document, type eula=true.
 
@@ -56,6 +60,8 @@ Open an elevated command prompt window in the server folder
 `java -jar -Xms256M -Xmx5G fabric.jar`
 
 `stop`
+
+Step 3 **RCON settings**
 
 After this, open `server.properties` with whatever text-editor, and change:
 
@@ -175,3 +181,53 @@ for ussr-ssl.py
 for ussr.py
 
 It will ask you for a login, so type in the credentials of the account you created eariler -- and that's it!
+
+# Port-forwarding your Minecraft server
+There are two options: play-it.gg & ngrok.
+There is an exploit on play-it.gg which you can abuse to get any region you want, however, for simplicity's sake, we will be doing a tutorial on ngrok.
+
+## Archlinux installation
+
+Step 1 **Installing ngrok**
+
+Step 1a **Install snap**
+
+`cd ~/`
+
+`git clone https://aur.archlinux.org/snapd.git`
+
+`cd snapd`
+
+`makepkg -si`
+
+Step 1b **Install ngrok**
+
+`sudo snap install ngrok`
+
+Step 2 **Making an account and logging in**
+
+Make an account on the [ngrok](https://dashboard.ngrok.com/signup) website.
+
+After you have made the account, navigate to the [setup](https://dashboard.ngrok.com/get-started/setup/linux) page
+
+`ngrok config add-authtoken THE-AUTHTOKEN-GIVEN`
+
+Change 'the-authtoken-given' to the one given on the website.
+
+Step 3 **Starting the service**
+
+You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
+
+`ngrok tcp --region eu 25565`
+
+`ngrok tcp --region ap 25565`
+
+`ngrok tcp --region in 25565`
+
+`ngrok tcp --region au 25565`
+
+`ngrok tcp --region us 25565`
+
+Select the region closest to your friends.
+
+IN is India, AP is Asia Pacific, EU is Europe, AU is Australia, and US is the United States.
