@@ -6,7 +6,7 @@
 # Archlinux Installation
 This guide assumes you have basic Archlinux & overall Linux experience. Please RTFM if you encounter any issues.
 
-Step 1 **Installing python & pip**
+Step 1 **Installing python & pip** <br/>
 `pacman -Sy python`
 `sudo pacman -S python-pip`
 
