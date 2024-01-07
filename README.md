@@ -254,15 +254,15 @@ Open a command prompt window in the folder where you downloaded ngrok.
 
 You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
 
-`ngrok tcp --region eu 25565`
+`ngrok.exe tcp --region eu 25565`
 
-`ngrok tcp --region ap 25565`
+`ngrok.exe tcp --region ap 25565`
 
-`ngrok tcp --region in 25565`
+`ngrok.exe tcp --region in 25565`
 
-`ngrok tcp --region au 25565`
+`ngrok.exe tcp --region au 25565`
 
-`ngrok tcp --region us 25565`
+`ngrok.exe tcp --region us 25565`
 
 Select the region closest to your friends.
 
