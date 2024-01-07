@@ -9,13 +9,17 @@ This guide assumes you have basic Archlinux & overall Linux experience. Please R
 Step 1 **Installing python & pip**
 
 `pacman -Sy python`
+
 `sudo pacman -S python-pip`
 
 Step 2 **Let's get Flask installed**
 
 `cd ~/2.0`
+
 `git clone https://aur.archlinux.org/python-flask-git.git`
+
 `cd python-flask-git`
+
 `makepkg -si`
 
 > TIP: I recommend you extract the /arch folder in your home directory (~/)
@@ -23,13 +27,17 @@ Step 2 **Let's get Flask installed**
 Step 3 **Installing MCRCON**
 
 `cd ~/2.0/script`
+
 `git clone https://aur.archlinux.org/mcrcon.git`
+
 `cd mcrcon`
+
 `makepkg -si`
 
 Step 4 **Running the application**
 
 `cd ~/2.0`
+
 `sudo python ussr(-ssl).py`
 
 > TIP: ussr-ssl.py must be edited in order to fully support HTTPS with your certificate.
