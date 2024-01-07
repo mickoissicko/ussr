@@ -11,31 +11,31 @@ Step 1 **Accquire the file**
 
 `$ mkdir server`
 
-`cd ~/server`
+`$ cd ~/server`
 
-`wget https://meta.fabricmc.net/v2/versions/loader/1.19.4/0.15.3/1.0.0/server/jar`
+`$ wget https://meta.fabricmc.net/v2/versions/loader/1.19.4/0.15.3/1.0.0/server/jar`
 
-`mv fabric-server-mc.1.19.4-loader.0.15.3-launcher.1.0.0.jar fabric.jar`
+`$ mv fabric-server-mc.1.19.4-loader.0.15.3-launcher.1.0.0.jar fabric.jar`
 
 Step 2 **Install java**
 
-`sudo pacman -S jdk-openjdk`
+`$ sudo pacman -S jdk-openjdk`
 
 Step 3 **Initialise and configure**
 
-`cd ~/server`
+`$ cd ~/server`
 
-`sudo nano eula.txt`
+`$ sudo nano eula.txt`
 
 Add the following text:
 
 eula=true
 
-`sudo java -jar -Xms256M -Xmx5G fabric.jar`
+`$ sudo java -jar -Xms256M -Xmx5G fabric.jar`
 
-`stop`
+`$ stop`
 
-`sudo nano server.properties`
+`$ sudo nano server.properties`
 
 In the server.properties file, change the rcon port to 25575, the rcon password to root_admin, and the address to 0.0.0.0, localhost, or 127.0.0.1.
 
@@ -57,9 +57,9 @@ Create a text document (.txt) named eula.txt and in the contents of the document
 
 Open an elevated command prompt window in the server folder
 
-`java -jar -Xms256M -Xmx5G fabric.jar`
+`$ java -jar -Xms256M -Xmx5G fabric.jar`
 
-`stop`
+`$ stop`
 
 Step 3 **RCON settings**
 
@@ -76,37 +76,37 @@ This guide assumes you have basic Archlinux & overall Linux experience. Please f
 
 Step 1 **Installing python & pip**
 
-`pacman -Sy python`
+`$ pacman -Sy python`
 
-`sudo pacman -S python-pip`
+`$ sudo pacman -S python-pip`
 
 Step 2 **Let's get Flask installed**
 
-`cd ~/2.0`
+`$ cd ~/2.0`
 
-`git clone https://aur.archlinux.org/python-flask-git.git`
+`$ git clone https://aur.archlinux.org/python-flask-git.git`
 
-`cd python-flask-git`
+`$ cd python-flask-git`
 
-`makepkg -si`
+`$ makepkg -si`
 
 > TIP: I recommend you extract the /arch folder in your home directory (~/)
 
 Step 3 **Installing MCRCON**
 
-`cd ~/2.0/script`
+`$ cd ~/2.0/script`
 
-`git clone https://aur.archlinux.org/mcrcon.git`
+`$ git clone https://aur.archlinux.org/mcrcon.git`
 
-`cd mcrcon`
+`$ cd mcrcon`
 
-`makepkg -si`
+`$ makepkg -si`
 
 Step 4 **Running the application**
 
-`cd ~/2.0`
+`$ cd ~/2.0`
 
-`sudo python ussr(-ssl).py`
+`$ sudo python ussr(-ssl).py`
 
 > TIP: ussr-ssl.py must be edited in order to fully support HTTPS with your certificate.
 > TIP: on default, ussr-ssl.py runs on port 443
@@ -114,17 +114,17 @@ Step 4 **Running the application**
 
 Step 5 **Installing Packetriot to expose your Flask app to your friends**
 
-`cd ~/2.0`
+`$ cd ~/2.0`
 
-`git clone https://aur.archlinux.org/pktriot.git`
+`$ git clone https://aur.archlinux.org/pktriot.git`
 
-`cd pktriot`
+`$ cd pktriot`
 
-`makepkg -si`
+`$ makepkg -si`
 
-*(ussr-ssl.py)* `pktriot http 443` 
+*(ussr-ssl.py)* `$ pktriot http 443` 
 
-*(ussr.py)* `pktriot http 80 `
+*(ussr.py)* `$ pktriot http 80 `
 
 It will ask you for an Email & Password. Head over to [Packetriot](https://packetriot.com/) and make an account, once done, proceed.
 
@@ -136,8 +136,8 @@ Password: asirrationalaspi
 
 This will log you in, it may say 'permission denied'. To fix this, run:
 
-`sudo pktriot http 443` for ussr-ssl.py
-`sudo pktriot http 80` for ussr.py
+`$ sudo pktriot http 443` for ussr-ssl.py
+`$ sudo pktriot http 80` for ussr.py
 
 ## Windows installation
 Step 1 **Python**
@@ -150,9 +150,9 @@ Step 2 **Dependencies**
 
 Run these commands in an elevated command prompt window:
 
-`pip install flask`
+`$ pip install flask`
 
-`pip install mcrcon`
+`$ pip install mcrcon`
 
 Step 3 **Using the requirements.bat file**
 
@@ -172,11 +172,11 @@ To see the architecture, watch this [tutorial](https://www.youtube.com/watch?v=g
 
 After you have downloaded the file, create a new folder in the 2.0 directory, and extract the pktriot.exe there. Open command prompt in an elevated window, and type:
 
-`pktriot.exe http 443`
+`$ pktriot.exe http 443`
 
 for ussr-ssl.py
 
-`pktriot.exe http 80`
+`$ pktriot.exe http 80`
 
 for ussr.py
 
@@ -192,17 +192,17 @@ Step 1 **Installing ngrok**
 
 Step 1a **Install snap**
 
-`cd ~/`
+`$ cd ~/`
 
-`git clone https://aur.archlinux.org/snapd.git`
+`$ git clone https://aur.archlinux.org/snapd.git`
 
-`cd snapd`
+`$ cd snapd`
 
-`makepkg -si`
+`$ makepkg -si`
 
 Step 1b **Install ngrok**
 
-`sudo snap install ngrok`
+`$ sudo snap install ngrok`
 
 Step 2 **Making an account and logging in**
 
@@ -210,7 +210,7 @@ Make an account on the [ngrok](https://dashboard.ngrok.com/signup) website.
 
 After you have made the account, navigate to the [setup](https://dashboard.ngrok.com/get-started/setup/linux) page
 
-`ngrok config add-authtoken THE-AUTHTOKEN-GIVEN`
+`$ ngrok config add-authtoken THE-AUTHTOKEN-GIVEN`
 
 Change 'the-authtoken-given' to the one given on the website.
 
@@ -218,15 +218,15 @@ Step 3 **Starting the service**
 
 You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
 
-`ngrok tcp --region eu 25565`
+`$ ngrok tcp --region eu 25565`
 
-`ngrok tcp --region ap 25565`
+`$ ngrok tcp --region ap 25565`
 
-`ngrok tcp --region in 25565`
+`$ ngrok tcp --region in 25565`
 
-`ngrok tcp --region au 25565`
+`$ ngrok tcp --region au 25565`
 
-`ngrok tcp --region us 25565`
+`$ ngrok tcp --region us 25565`
 
 Select the region closest to your friends.
 
@@ -246,7 +246,7 @@ After you have made the account, navigate to the [setup](https://dashboard.ngrok
 
 Open a command prompt window in the folder where you downloaded ngrok, and type
 
-`ngrok.exe config add-authtoken THE-AUTHTOKEN-GIVEN`
+`$ ngrok.exe config add-authtoken THE-AUTHTOKEN-GIVEN`
 
 Step 3 **Starting the service**
 
@@ -254,15 +254,15 @@ Open a command prompt window in the folder where you downloaded ngrok.
 
 You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
 
-`ngrok.exe tcp --region eu 25565`
+`$ ngrok tcp --region eu 25565`
 
-`ngrok.exe tcp --region ap 25565`
+`$ ngrok tcp --region ap 25565`
 
-`ngrok.exe tcp --region in 25565`
+`$ ngrok tcp --region in 25565`
 
-`ngrok.exe tcp --region au 25565`
+`$ ngrok tcp --region au 25565`
 
-`ngrok.exe tcp --region us 25565`
+`$ ngrok tcp --region us 25565`
 
 Select the region closest to your friends.
 
