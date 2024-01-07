@@ -84,6 +84,7 @@ Step 2 **Dependencies**
 Run these commands in an elevated command prompt window:
 
 `pip install flask`
+
 `pip install mcrcon`
 
 Step 3 **Using the requirements.bat file**
