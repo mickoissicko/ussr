@@ -3,6 +3,66 @@
 * I am not serious, the comments are trash
 * Good luck LOL
 
+# Setting up the Minecraft Server
+> NOTE: This tutorial is for a Fabric server. If you want to use something like PaperMC, Glowstone, or Airplane, figure it out -- it isn't rocket science.
+## For Arch
+
+Step 1. **Accquire the file**
+
+`mkdir server`
+
+`cd ~/server`
+
+`wget https://meta.fabricmc.net/v2/versions/loader/1.19.4/0.15.3/1.0.0/server/jar`
+
+`mv fabric-server-mc.1.19.4-loader.0.15.3-launcher.1.0.0.jar fabric.jar`
+
+Step 2. **Install java**
+
+`sudo pacman -S jdk-openjdk`
+
+Step 3. **Initialise and configure**
+
+`cd ~/server`
+
+`sudo nano eula.txt`
+
+Add the following text:
+
+eula=true
+
+`sudo java -jar -Xms256M -Xmx5G fabric.jar`
+
+`stop`
+
+`sudo nano server.properties`
+
+In the server.properties file, change the rcon port to 25575, the rcon password to root_admin, and the address to 0.0.0.0, localhost, or 127.0.0.1.
+
+## For Windows
+
+Download [Liberica JDK](https://download.bell-sw.com/java/21.0.1+12/bellsoft-jdk21.0.1+12-windows-amd64.msi)
+
+Change the name of this file to fabric.jar
+
+Make a folder somewhere safe, and name it `server`.
+
+Download the [Fabric server software](https://meta.fabricmc.net/v2/versions/loader/1.19.4/0.15.3/1.0.0/server/jar) in the folder
+
+Create a text document (.txt) named eula.txt and in the contents of the document, type eula=true.
+
+Open an elevated command prompt window in the server folder
+
+`java -jar -Xms256M -Xmx5G fabric.jar`
+
+`stop`
+
+After this, open `server.properties` with whatever text-editor, and change:
+
+RCON port to 25575
+RCON password to root_admin
+RCON address to 0.0.0.0 or localhost
+
 # Archlinux Installation
 This guide assumes you have basic Archlinux & overall Linux experience. Please fix the issue yourself if you encounter any.
 
