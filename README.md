@@ -43,3 +43,29 @@ Step 4 **Running the application**
 > TIP: ussr-ssl.py must be edited in order to fully support HTTPS with your certificate.
 > TIP: on default, ussr-ssl.py runs on port 443
 > TIP: run ussr.py to make a basic port 80 webserver
+
+*optional* Step 5 **Installing Packetriot to expose your Flask app to your friends**
+
+`cd ~/2.0`
+
+`git clone https://aur.archlinux.org/pktriot.git`
+
+`cd pktriot`
+
+`makepkg -si`
+
+*(ussr-ssl.py)* `pktriot http 443` 
+
+*(ussr.py)* `pktriot http 80 `
+
+It will ask you for an Email & Password. Head over to [Packetriot](https://packetriot.com/) and make an account, once done, proceed.
+
+**EXAMPLE:**
+
+Email: mickey@coolkids.club
+Password: asirrationalaspi
+
+This will log you in, it may say 'permission denied'. To fix this, run:
+
+`sudo pktriot http 443` for ussr-ssl.py
+`sudo pktriot http 80` for ussr.py
