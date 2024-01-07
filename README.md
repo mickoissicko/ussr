@@ -63,7 +63,9 @@ RCON port to 25575
 RCON password to root_admin
 RCON address to 0.0.0.0 or localhost
 
-# Archlinux Installation
+# Setting up the USSR for your PC
+
+## Archlinux installation
 This guide assumes you have basic Archlinux & overall Linux experience. Please fix the issue yourself if you encounter any.
 
 Step 1 **Installing python & pip**
@@ -131,8 +133,7 @@ This will log you in, it may say 'permission denied'. To fix this, run:
 `sudo pktriot http 443` for ussr-ssl.py
 `sudo pktriot http 80` for ussr.py
 
-# Windows installation
-
+## Windows installation
 Step 1 **Python**
 
 Download [Python 3.9.10](https://www.python.org/downloads/)
