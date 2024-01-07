@@ -1,0 +1,33 @@
+|| This guide will not be user-friendly. If you are smart enough to use Arch, you are smart enough to do this.
+
+|| Let's get Python, flask, and MCRCON installed now!
+
+sudo pacman -Sy python
+sudo pacman -S python-virualenv
+sudo pacman -S python-pip
+
+|| For flask
+
+cd /src/arch
+git clone https://aur.archlinux.org/python-flask-git.git
+cd python-flask-git
+makepkg -si
+
+|| For mcrcon
+
+cd /src/arch/script
+git clone https://aur.archlinux.org/mcrcon.git
+cd mcrcon
+makepkg -si
+
+|| BTW, I use Arch
+|| If you have trouble running these commands, go RTFM.
+
+|| Let's get the application running 
+|| Choose SSL or normal USSR-xxx or USSR-???.py version.
+
+cd /src/arch
+sudo python ussr(-ssl).py
+
+|| And that's it!
+|| To port-forward, you can use PKTRIOT or NGROK. PKTRIOT is a little complicated to set up.
