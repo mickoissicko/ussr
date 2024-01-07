@@ -4,7 +4,7 @@
 * Good luck LOL
 
 # Archlinux Installation
-This guide assumes you have basic Archlinux & overall Linux experience. Please RTFM if you encounter any issues.
+This guide assumes you have basic Archlinux & overall Linux experience. Please fix the issue yourself if you encounter any.
 
 Step 1 **Installing python & pip**
 
