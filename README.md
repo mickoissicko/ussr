@@ -70,3 +70,46 @@ This will log you in, it may say 'permission denied'. To fix this, run:
 
 `sudo pktriot http 443` for ussr-ssl.py
 `sudo pktriot http 80` for ussr.py
+
+# Windows installation
+
+Step 1 **Python**
+
+Download [Python 3.9.10](https://www.python.org/downloads/)
+
+Run the installer, disable PATH limit, and add Python to PATH, it should be in the installer options; if it is not, refer to this [tutorial](https://www.youtube.com/watch?v=Y2q_b4ugPWk)
+
+Step 2 **Dependencies**
+
+Run these commands in an elevated command prompt window:
+
+`pip install flask`
+`pip install mcrcon`
+
+Step 3 **Using the requirements.bat file**
+
+Instead of using Pip, you can run the requirements.bat file provided.
+
+Step 4 **Running the application**
+
+Just double click ussr-ssl.py or ussr.py, whichever you want to use.
+
+*optional* Step 5 **Installing Packetriot**
+
+Head over to [Packetriot](https://packetriot.com/) and make an account, once done, proceed.
+
+Now that you have an account, go to the [downloads](https://packetriot.com/downloads) page, and scroll down until you find the download for your Window's system's architecture. (32 bit or 64 bit.)
+
+To see the architecture, watch this [tutorial](https://www.youtube.com/watch?v=gHeiQTn0_JU)
+
+After you have downloaded the file, create a new folder in the 2.0 directory, and extract the pktriot.exe there. Open command prompt in an elevated window, and type:
+
+`pktriot.exe http 443`
+
+for ussr-ssl.py
+
+`pktriot.exe http 80`
+
+for ussr.py
+
+It will ask you for a login, so type in the credentials of the account you created eariler -- and that's it!
