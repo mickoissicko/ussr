@@ -63,6 +63,7 @@ It will ask you for an Email & Password. Head over to [Packetriot](https://packe
 **EXAMPLE:**
 
 Email: mickey@coolkids.club
+
 Password: asirrationalaspi
 
 This will log you in, it may say 'permission denied'. To fix this, run:
