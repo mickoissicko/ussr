@@ -44,7 +44,7 @@ Step 4 **Running the application**
 > TIP: on default, ussr-ssl.py runs on port 443
 > TIP: run ussr.py to make a basic port 80 webserver
 
-*optional* Step 5 **Installing Packetriot to expose your Flask app to your friends**
+Step 5 **Installing Packetriot to expose your Flask app to your friends**
 
 `cd ~/2.0`
 
@@ -94,7 +94,7 @@ Step 4 **Running the application**
 
 Just double click ussr-ssl.py or ussr.py, whichever you want to use.
 
-*optional* Step 5 **Installing Packetriot**
+Step 5 **Installing Packetriot**
 
 Head over to [Packetriot](https://packetriot.com/) and make an account, once done, proceed.
 
