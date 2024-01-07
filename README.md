@@ -9,7 +9,7 @@
 
 Step 1 **Accquire the file**
 
-`mkdir server`
+`$ mkdir server`
 
 `cd ~/server`
 
