@@ -109,7 +109,9 @@ Step 4 **Running the application**
 `$ sudo python ussr(-ssl).py`
 
 > TIP: ussr-ssl.py must be edited in order to fully support HTTPS with your certificate.
+> 
 > TIP: on default, ussr-ssl.py runs on port 443
+> 
 > TIP: run ussr.py to make a basic port 80 webserver
 
 Step 5 **Installing Packetriot to expose your Flask app to your friends**
