@@ -1,0 +1,165 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server Panel</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+        }
+
+        #content {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+            color: #fff;
+        }
+
+        button:hover::before,
+        button:hover::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: follow 0.8s infinite;
+        }
+
+        @keyframes follow {
+            0%, 100% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        #startBtn, #stopBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #startBtn:hover, #stopBtn:hover {
+            background-color: #555;
+            color: #fff;
+        }
+
+        #startBtn:hover::before,
+        #startBtn:hover::after,
+        #stopBtn:hover::before,
+        #stopBtn:hover::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: follow 0.8s infinite;
+        }
+
+        @keyframes follow {
+            0%, 100% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Minecraft Server Panel</h1>
+        <button id="startBtn" onclick="start()">Start</button>
+        <button id="stopBtn" onclick="stop()">Stop</button>
+        <button type="button" onclick="redirectToYouTube()">Creative Mode</button>
+    </div>
+    <div id="centeredTipText">TIP: Please wait at least 4 minutes before trying again or contacting the website administrator. </div>
+</div>
+    <div>
+        <style>
+        #centeredTipText {
+            font-size: 18px;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: -500px;
+        }
+        </style>
+    <script>
+
+                /* NON FUNCTIONAL // PLACEHOLDER // DEBUGGING TEST SCRIPT */
+                async function test() {
+
+                try {
+                const response = await fetch ('/test');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function start() {
+            try {
+
+                const response = await fetch('/start');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function stop() {
+            try {
+
+                const response = await fetch('/stop');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function redirectToYouTube() {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }
+
+    </script>
+</body>
+</html>
