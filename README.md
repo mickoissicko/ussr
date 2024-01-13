@@ -76,7 +76,7 @@ This guide assumes you have basic Archlinux & overall Linux experience. Please f
 
 Step 1 **Installing python & pip**
 
-`$ pacman -Sy python`
+`$ sudo pacman -Sy python`
 
 `$ sudo pacman -S python-pip`
 
