@@ -102,6 +102,10 @@ Step 3 **Installing MCRCON**
 
 `$ makepkg -si`
 
+Step 4 **Installing Requests for Discord Webhook** *(OPTIONAL)*
+
+`$ sudo pacman -Sy python-requests`
+
 Step 4 **Running the application**
 
 `$ cd ~/2.0`
@@ -155,6 +159,8 @@ Run these commands in an elevated command prompt window:
 `$ pip install flask`
 
 `$ pip install mcrcon`
+
+`$ pip install requests`
 
 Step 3 **Using the requirements.bat file**
 
