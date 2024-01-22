@@ -1,0 +1,2 @@
+|| Run install.bat with administrator
+|| Replace the paths in the Python files with respective paths (for your configuration)
