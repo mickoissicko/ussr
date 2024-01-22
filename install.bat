@@ -46,6 +46,7 @@ start /wait "" %pythonInstallerPath% /quiet InstallAllUsers=1 PrependPath=1
 
 python -m pip install flask
 python -m pip install mcrcon
+python -m pip install requests
 
 del %pythonInstallerPath%
 

@@ -1,0 +1,203 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <title>Minecraft Server Panel</title>
+    <style>
+body {
+    overflow: hidden;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #3498db, #8e44ad);
+    -webkit-background-clip: text; /* Safari 3 and Chrome */
+    background-clip: text; /* Standard property */
+    color: transparent;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #3498db, #8e44ad);
+    -webkit-background-clip: text; /* Safari 3 and Chrome */
+    background-clip: text; /* Standard property */
+    color: transparent;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control-button:hover {
+    background-color: #8e44ad;
+}
+
+.control-button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc6f;
+    color: #0d0d0d;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: #ffa733;
+}
+
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.control-button {
+    width: 150px;
+    height: 40px;
+    background-color: #3498db;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#centeredTipText {
+        position: absolute;
+        margin: 66px;
+        color: red;
+        font-size: 16px;
+        animation: flashText 1s infinite alternate;
+    }
+
+    @keyframes flashText {
+        0% {
+            color: red;
+        }
+        100% {
+            color: orange;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button onclick="redirectToHome()">
+            Mick's Space
+        </button>
+        <div class="center">
+            <h1>Minecraft Server Panel</h1>
+            <div class="controls-container">
+                <div class="control-button" onclick="start()">
+                    <a href="#">Start</a>
+                </div>
+                <div class="control-button" onclick="stop()">
+                    <a href="#">Stop</a>
+                </div>
+                <div class="control-button" onclick="redirectToYouTube()">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Creative Mode</a>
+                </div>
+            </div>
+            <p id="centeredTipText">
+                <img src="https://i.ibb.co/crwjx0H/nuke.png" alt="Warning" height="14" width="14">
+                WARNING: PLEASE STOP THE SERVER AFTER YOU'RE DONE PLAYING.
+            </p>            
+    </div>
+
+    <script>
+
+    /* NON FUNCTIONAL // PLACEHOLDER // DEBUGGING TEST SCRIPT */
+                async function test() {
+
+                try {
+                const response = await fetch ('/test');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function start() {
+            try {
+
+                const response = await fetch('/start');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function stop() {
+            try {
+
+                const response = await fetch('/stop');
+                const message = await response.text();
+
+                console.log(message);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function redirectToYouTube() {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
+        }
+        function redirectToHome() {
+            window.location.href = "https://mick.gdn";
+        }
+    </script>
+</body>
+
+</html>

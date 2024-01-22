@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo pacman -Sy python python-pip
+sudo pacman -S python-requests
 
 cd server/
 git clone https://aur.archlinux.org/python-flask-git.git
