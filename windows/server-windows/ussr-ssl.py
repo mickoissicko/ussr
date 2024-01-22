@@ -4,17 +4,30 @@ import requests
 from flask import Flask, render_template
 import time
 
+conf_file_path = 'config/conf.txt'
+use_ngrok = False
+
+with open(conf_file_path, 'r') as conf_file:
+    for line in conf_file:
+        line = line.strip()
+        if line.startswith('#'):
+            continue
+        if 'use-ngrok=True' in line:
+            use_ngrok = True
+            break
+
+if use_ngrok:
+    ngroksenpai_script_path = 'drive:/path/to/ussr/directory/script/ngroksenpai.py'
+    subprocess.Popen(['python', ngroksenpai_script_path])
+
 app = Flask(__name__)
 
-MC_FOLDER = 'drive:/path/to/minecraft/server'
-DISCORD_WEBHOOK_URL = 'webhook_for_displaying_if_server_on_or_off'
+MC_FOLDER = 'drive:/path/to/mc/server'
+DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1198363091746959470/PmIVa4zIJ6Dehr-G-MbhPuTZ5YEVXMw4LMuX9RqgibvkTMybb_D4Bl2iHHJ92qSsyW2P'
 
 def send_discord_message(content):
     data = {'content': content}
     requests.post(DISCORD_WEBHOOK_URL, json=data)
-
-ngroksenpai_script_path = 'drive:/path/to/ussr/directory/script/ngroksenpai.py'
-subprocess.Popen(['python', ngroksenpai_script_path])
 
 @app.route('/')
 def index():
