@@ -30,6 +30,11 @@ def send_discord_webhook(webhook_url, region, url):
     payload = {"content": message}
     requests.post(webhook_url, json=payload)
 
+starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
+subprocess.Popen(['cmd', '/c', starter_script_path], shell=True)
+
+time.sleep(8)
+
 def main():
     if check_lock_file():
         print("Another instance is already running. Exiting.")
@@ -48,7 +53,7 @@ def main():
 
         target_string = "tcp://"
 
-        discord_webhook_url = "your_webhook"
+        discord_webhook_url = "discord_webhook_for_sending_ngrok_urls"
 
         region_mapping = {
             ".au": "Sydney",
