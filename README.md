@@ -67,60 +67,38 @@ After this, open `server.properties` with whatever text-editor, and change:
 
 RCON port to 25575
 RCON password to root_admin
-RCON address to 0.0.0.0 or localhost
+RCON address localhost
 
 # Setting up the USSR for your PC
 
 ## Archlinux installation
 This guide assumes you have basic Archlinux & overall Linux experience. Please fix the issue yourself if you encounter any.
 
-Step 1 **Installing python & pip**
+Step 4a **Let's install Python & dependencies**
 
-`$ sudo pacman -Sy python`
+`$ sudo pacman -S python`
 
-`$ sudo pacman -S python-pip`
+`$ cd ussr-xyz`
 
-Step 2 **Let's get Flask installed**
+> ussr-***xyz*** is the version, e.g. you are using version 2.2, that would be: ussr-2.2
 
-`$ cd ~/2.0`
+`$ cd archlinux`
 
-`$ git clone https://aur.archlinux.org/python-flask-git.git`
+`$ chmod +x install.sh`
 
-`$ cd python-flask-git`
+`$ ./install.sh`
 
-`$ makepkg -si`
+Step 4b **Running the USSR**
 
-> TIP: I recommend you extract the /arch folder in your home directory (~/)
-
-Step 3 **Installing MCRCON**
-
-`$ cd ~/2.0/script`
-
-`$ git clone https://aur.archlinux.org/mcrcon.git`
-
-`$ cd mcrcon`
-
-`$ makepkg -si`
-
-Step 4 **Installing Requests for Discord Webhook** *(OPTIONAL)*
-
-`$ sudo pacman -Sy python-requests`
-
-Step 4 **Running the application**
-
-`$ cd ~/2.0`
+`$ cd server-arch`
 
 `$ sudo python ussr(-ssl).py`
 
-> TIP: ussr-ssl.py must be edited in order to fully support HTTPS with your certificate.
-> 
-> TIP: on default, ussr-ssl.py runs on port 443
-> 
-> TIP: run ussr.py to make a basic port 80 webserver
+> ussr-ssl.py is optional, use the SSL version if you want HTTPS instead of HTTP. It doesn't matter if you will use Pktriot, though.
 
-Step 5 **Installing Packetriot to expose your Flask app to your friends**
+Step 5 **Installing Packetriot to expose the Flask app to your friends (friends..?)**
 
-`$ cd ~/2.0`
+`$ cd ~/path/to/ussr/directory`
 
 `$ git clone https://aur.archlinux.org/pktriot.git`
 
@@ -136,7 +114,7 @@ It will ask you for an Email & Password. Head over to [Packetriot](https://packe
 
 **EXAMPLE:**
 
-Email: mickey@coolkids.club
+Email: mickey@koolkids.klan
 
 Password: asirrationalaspi
 
@@ -153,22 +131,17 @@ Download [Python 3.9.10](https://www.python.org/downloads/)
 Run the installer, disable PATH limit, and add Python to PATH, it should be in the installer options; if it is not, refer to this [tutorial](https://www.youtube.com/watch?v=Y2q_b4ugPWk)
 
 Step 2 **Dependencies**
+Open an elevated command prompt window in the ussr directory.
 
-Run these commands in an elevated command prompt window:
+`$ cd ussr-xyz`
 
-`$ pip install flask`
+> no need for this if you are already in the directory
 
-`$ pip install mcrcon`
+> not explaining what 'xyz' is, scroll up
 
-`$ pip install requests`
+`$ cd windows`
 
-Step 3 **Using the requirements.bat file**
-
-Instead of using Pip, you can run the requirements.bat file provided.
-
-Step 4 **Running the application**
-
-Just double click ussr-ssl.py or ussr.py, whichever you want to use.
+`$ "install.bat"`
 
 Step 5 **Installing Packetriot**
 
@@ -191,11 +164,9 @@ for ussr.py
 It will ask you for a login, so type in the credentials of the account you created eariler -- and that's it!
 
 # Port-forwarding your Minecraft server
-There are two options: play-it.gg & ngrok.
-There is an exploit on play-it.gg which you can abuse to get any region you want, however, for simplicity's sake, we will be doing a tutorial on ngrok.
+We will be using ngrok because it is better.
 
-## Archlinux installation
-
+# Installation for Archlinux
 Step 1 **Installing ngrok**
 
 Step 1a **Install snap**
@@ -222,27 +193,30 @@ After you have made the account, navigate to the [setup](https://dashboard.ngrok
 
 Change 'the-authtoken-given' to the one given on the website.
 
-Step 3 **Starting the service**
+Step 3 **Starting Ngrok**
+You do not need to start ngrok manually, `ussr(-ssl).py` does it automatically for you, unless you have ngrok.functionality=False.
 
-You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
+Step 4 **Running the tool**
+Copy the webhook URL
 
-`$ ngrok tcp --region eu 25565`
+![](https://i.ibb.co/0Qb8d4q/Untitled.png)
 
-`$ ngrok tcp --region ap 25565`
+Navigate to Line 26, and edit this:
 
-`$ ngrok tcp --region in 25565`
+`discord_webhook_url = "ur_webhook_noob"`
 
-`$ ngrok tcp --region au 25565`
+with the actual webhook URI.
 
-`$ ngrok tcp --region us 25565`
+![](https://i.ibb.co/wyTZ0nH/2.png)
 
-Select the region closest to your friends.
+After you have added the URL, run the following command in the directory where `ngroksenpai.py` is located.
 
-IN is India, AP is Asia Pacific, EU is Europe, AU is Australia, and US is the United States.
+`$ sudo python ngroksenpai.py`
 
-## Windows installation
+Enter your password and it should send the links in Discord!
 
-Step 1 **Install ngrok**
+# Installation for Windows
+Step 1. **Installing Ngrok**
 
 Install [ngrok](ngrok.com). You can choose the [64-bit version](https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip) or the [32-bit version](https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-386.zip). 
 
@@ -258,21 +232,19 @@ Open a command prompt window in the folder where you downloaded ngrok, and type
 
 Step 3 **Starting the service**
 
-Open a command prompt window in the folder where you downloaded ngrok.
+You do not need to start ngrok manually, `ussr(-ssl).py` does it automatically for you, unless you have ngrok.functionality=False.
 
-You can start 3 ngrok tunnels in locations: in, ap, eu, au, and us.
+Step 4 **Running the tool**
+Copy the webhook URL
 
-`$ ngrok tcp --region eu 25565`
+![](https://i.ibb.co/0Qb8d4q/Untitled.png)
 
-`$ ngrok tcp --region ap 25565`
+Navigate to Line 26, and edit this:
 
-`$ ngrok tcp --region in 25565`
+`discord_webhook_url = "ur_webhook_noob"`
 
-`$ ngrok tcp --region au 25565`
+with the actual webhook URI.
 
-`$ ngrok tcp --region us 25565`
+![](https://i.ibb.co/wyTZ0nH/2.png)
 
-Select the region closest to your friends.
-
-IN is India, AP is Asia Pacific, EU is Europe, AU is Australia, and US is the United States.
 

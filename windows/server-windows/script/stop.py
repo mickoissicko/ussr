@@ -3,8 +3,8 @@
 import subprocess
 
 server_address = 'localhost'
-server_port = 'your_Rcon_port'
-server_password = 'your_Rcon_passwd'
+server_port = '25575'
+server_password = 'root_admin'
 
 def stop_server():
     try:
