@@ -23,7 +23,7 @@ if use_ngrok:
 app = Flask(__name__)
 
 MC_FOLDER = 'drive:/path/to/mc/server'
-DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1198363091746959470/PmIVa4zIJ6Dehr-G-MbhPuTZ5YEVXMw4LMuX9RqgibvkTMybb_D4Bl2iHHJ92qSsyW2P'
+DISCORD_WEBHOOK_URL = 'webhook_for_server_status'
 
 def send_discord_message(content):
     data = {'content': content}
