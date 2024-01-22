@@ -10,6 +10,6 @@ timeout /t 15 /nobreak
 
 cd /d C:\path\to\ngrok
 rem replace this with the path of your ngrok.exe
-rem example path: C:\Ngrok\bin\ngrok.exe
+rem example path: D:\Ngrok\bin\ngrok.exe
 
 python ngroksenpai.py
