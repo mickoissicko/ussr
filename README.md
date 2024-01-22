@@ -13,4 +13,4 @@ Aternos sucks, and stops server after 3-5 minutes of inactivity, and it has limi
 
 > How do I use it?
 
-Check the official [Wiki](https://github.com/mickoissicko/ussr/wiki)
+Check the official [Wiki](https://mick.gdn/dir.html)
