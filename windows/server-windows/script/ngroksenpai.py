@@ -33,7 +33,7 @@ def send_discord_webhook(webhook_url, region, url):
 starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
 subprocess.Popen(['cmd', '/c', starter_script_path], shell=True)
 
-time.sleep(8)
+time.sleep(10)
 
 def main():
     if check_lock_file():
