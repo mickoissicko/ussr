@@ -14,3 +14,14 @@ Aternos sucks, and stops server after 3-5 minutes of inactivity, and it has limi
 > How do I use it?
 
 Check the official [Wiki](https://mick.gdn/dir.html)
+
+# Info
+You need to kill all Ngrok processes before re-running / restarting the USSR. After the USSR process is terminated, it itself does not stop the Ngrok processes which is a problem. Ngroksenpai freaks out and doesn't correctly send all the IPs.
+
+To kill processes on Arch:
+
+`sudo kill ngrok`
+
+To kill processes on Windows:
+
+`taskkill /f /im ngrok.exe`
