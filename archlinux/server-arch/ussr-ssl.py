@@ -40,7 +40,7 @@ def start():
     start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/fabric.jar']
     subprocess.Popen(start_command, cwd=MC_FOLDER)
     
-    time.sleep(15)
+    time.sleep(27)
     
     send_discord_message('``server started``')
     return "Server started successfully!"
