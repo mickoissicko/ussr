@@ -1,1 +1,6 @@
-# NO USE FOR THIS FILE AS OF NOW!
+# conf.txt 
+#
+# uncomment the line below to allow the app to initialise ngrok
+# uncommenting the below line also allows the app to automatically send the ngrok urls if config'd correctly
+# 
+# use-ngrok=True
