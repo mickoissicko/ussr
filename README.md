@@ -28,5 +28,12 @@ To kill processes on Windows:
 
 `taskkill /f /im ngrok.exe`
 
-# Tree
-gonna add later
+The size of the program after installation on:
+
+* Windows: `84.05 megabytes`
+* Includes: `MCRCON`, `Requests`, `Flask`, `Tar`, `C-URL`, `Chocolatey`, `Ngrok`
+* Excludes: `PyPi`, `Python`
+
+* Linux/Darwin:
+* Includes:
+* Excludes: 
