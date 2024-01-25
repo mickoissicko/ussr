@@ -30,10 +30,10 @@ To kill processes on Windows:
 
 The size of the program after installation on:
 
-* Windows: `84.05 megabytes`
-* Includes: `MCRCON`, `Requests`, `Flask`, `Tar`, `C-URL`, `Chocolatey`, `Ngrok`
-* Excludes: `PyPi`, `Python`
+* **Windows**: `84.05 megabytes`
+* *Includes*: `MCRCON`, `Requests`, `Flask`, `Tar`, `C-URL`, `Chocolatey`, `Ngrok`
+* *Excludes*: `PyPi`, `Python`
 
-* Linux/Darwin: `34.93 MB`
-* Includes: `Ngrok`, `MCRCON`, `Flask`, `Requests`
-* Excludes: `C-URL`, `Tar`, `PyPi`, `Python`
+* **Linux/Darwin**: `34.93 MB`
+* *Includes*: `Ngrok`, `MCRCON`, `Flask`, `Requests`
+* *Excludes*: `C-URL`, `Tar`, `PyPi`, `Python`
