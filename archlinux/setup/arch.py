@@ -1,11 +1,21 @@
 # setup/arch.py
 
 import os
+import platform
 import webbrowser
 
 def main_menu():
     print("[1] Launch USSR")
     print("[2] Use Ngrok")
+
+def clear_screen():
+    system = platform.system().lower()
+
+    if 'linux' in system or 'darwin' in system:
+        os.system('clear')
+    else:
+        print("Average Hello Kitty OS user:")
+        print("Ok, but serious... not Linux, Darwin, or Windows?! Wuh da heellll.?!")
 
 def launch_ussr():
 
@@ -52,8 +62,8 @@ def launch_ussr():
     os.system("bash start.sh")
 
 def config_ngrok():
+    
 
-    os.chdir('..')
     os.chdir('archlinux/server-arch/config')
 
     if not os.path.isfile('conf.txt'):

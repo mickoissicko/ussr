@@ -1,5 +1,3 @@
-REM setup/start.bat
-
 @echo off
 
 :: Set the download URL and file name
@@ -12,7 +10,18 @@ curl -o %fileName% %downloadURL%
 
 tar -xf %fileName% -C %extractDir%
 
-
 del %fileName%
 
 echo Download and extraction complete.
+
+echo. > lock.pa
+echo Lock file created.
+
+if exist lock.pa (
+    echo Lock file detected. Running ustart.bat.
+    call ustart.bat
+    echo Exiting main batch script.
+    exit /b
+) else (
+    echo.
+)
