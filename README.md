@@ -11,6 +11,8 @@ Well first of all... IT'S FREE. 0 DOLLAHS. Completely free. Forever. Yes, I copi
 
 Aternos sucks, and stops server after 3-5 minutes of inactivity, and it has limited RAM. With this, you can host your own server, have 100% control over it, unlimitied RAM & CPU, as well as amazing ping because you can utilise the many locations Ngrok offers ... for FREE!
 
+My friend gets ~200ms average on Aternos, but on Ngrok's Singapore location, around 90ms. (He lives near Singapore!)
+
 > How do I use it?
 
 Check the official [Wiki](https://mick.gdn/dir.html)
