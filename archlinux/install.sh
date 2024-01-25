@@ -12,6 +12,3 @@ cd script/
 git clone https://aur.archlinux.org/mcrcon.git
 cd mcrcon
 makepkg -si
-
-cd ..
-sudo python ussr-ssl.py
