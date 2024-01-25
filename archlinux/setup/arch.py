@@ -19,8 +19,6 @@ def launch_ussr():
     else:
         print("Read the guide!")
         webbrowser.open("https://mick.gdn/wiki/ussr.html")
-
-    os.chdir('setup/')
     
     if os.path.exists("token.txt"):
         with open("token.txt", "r") as file:
@@ -53,6 +51,62 @@ def launch_ussr():
     print("Starting the .sh script...")
     os.system("bash start.sh")
 
+def config_ngrok():
+
+    os.chdir('..')
+    os.chdir('archlinux/server-arch/config')
+
+    if not os.path.isfile('conf.txt'):
+        with open('conf.txt', 'w') as file:
+            file.write("# conf.txt\n"
+                       "#\n"
+                       "# uncomment the line below to allow the app to initialise ngrok\n"
+                       "# uncommenting the below line also allows the app to automatically send the ngrok urls if config'd correctly\n"
+                       "# \n"
+                       "# use-ngrok=True\n")
+        
+        print("File was not found. I recreated it and repopulated the text within.")
+        response = input("Enable Ngrok? [y/n]: ").lower()
+        
+        if response == 'y':
+            with open('conf.txt', 'r') as file:
+                data = file.readlines()
+
+            with open('conf.txt', 'w') as file:
+                for line in data:
+                    if '# use-ngrok=True' in line:
+                        file.write('use-ngrok=True\n')
+                    else:
+                        file.write(line)
+        elif response == 'n':
+            pass
+        else:
+            print("Invalid response. Keeping the file as is.")
+    else:
+        use_ngrok_response = input("Use Ngrok? [y/n]: ").lower()
+        
+        if use_ngrok_response == 'y':
+            with open('conf.txt', 'r') as file:
+                data = file.readlines()
+
+            with open('conf.txt', 'w') as file:
+                for line in data:
+                    if '# use-ngrok=True' in line:
+                        file.write('use-ngrok=True\n')
+                    else:
+                        file.write(line)
+        elif use_ngrok_response == 'n':
+            with open('conf.txt', 'r') as file:
+                data = file.readlines()
+
+            with open('conf.txt', 'w') as file:
+                for line in data:
+                    if 'use-ngrok=True' in line:
+                        file.write('# use-ngrok=True\n')
+                    else:
+                        file.write(line)
+        else:
+            print("Invalid response. Keeping the file as is.")
 
 if __name__ == "__main__":
 
@@ -64,7 +118,7 @@ if __name__ == "__main__":
             launch_ussr()
             break
         elif choice == "2":
-            print("Ngrok functionality not implemented yet.")
+            config_ngrok()
             break
         else:
             print("Invalid choice. Please enter 1 or 2.")
