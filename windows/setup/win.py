@@ -1,3 +1,7 @@
+# setup/win.py
+
+# setup/arch.py
+
 # setup/arch.py
 
 import os
@@ -8,6 +12,18 @@ def main_menu():
     print("[2] Use Ngrok")
 
 def launch_ussr():
+
+    path = input("\nDid you configure paths? [y/n]")
+
+    if path == "y":
+        pass
+    elif path == "n":
+        print("Read the guide!")
+        webbrowser.open("https://mick.gdn/wiki/ussr.html")
+    else:
+        print("Read the guide!")
+        webbrowser.open("https://mick.gdn/wiki/ussr.html")
+
     os.chdir('setup/')
     
     if os.path.exists("token.txt"):
@@ -36,7 +52,7 @@ def launch_ussr():
         with open("token.txt", "w") as file:
             file.write(autk)
 
-    os.system(f"ngrok config add-authtoken {autk}")
+    os.system(f"ngrok.exe config add-authtoken {autk}")
     
     print("Starting the .sh script...")
     os.system("bash start.sh")
