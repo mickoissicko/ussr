@@ -24,7 +24,6 @@ if use_ngrok:
 
 app = Flask(__name__)
 
-MC_FOLDER = 'bin/.mc/'
 DISCORD_WEBHOOK_URL_FILE = '../config/webhook.txt'
 
 def get_discord_webhook_url():
@@ -48,9 +47,12 @@ def index():
 @app.route('/start')
 def start():
     send_discord_message('``server starting...``')
-    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/server.jar']
-    subprocess.Popen(start_command, cwd=MC_FOLDER)
-    
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    mc_dir = os.path.join(script_dir, '../bin/.mc')
+    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', 'nogui', os.path.join(mc_dir, 'server.jar')]
+    subprocess.Popen(start_command, cwd=mc_dir)
+
     time.sleep(27)
     
     send_discord_message('``server started``')
