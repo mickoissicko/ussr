@@ -4,3 +4,4 @@
 # uncommenting the below line also allows the app to automatically send the ngrok urls if config'd correctly
 # 
 # use-ngrok=True
+# autongrok=True

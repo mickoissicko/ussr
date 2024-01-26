@@ -1,3 +1,4 @@
+
 import subprocess
 import requests
 import json
@@ -6,7 +7,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
-WEBHOOK_FILE_PATH = '../../config/webhook.txt'
+WEBHOOK_FILE_PATH = '../config/webhook.txt'
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -36,8 +37,28 @@ def send_discord_webhook(webhook_url, region, url):
     payload = {"content": message}
     requests.post(webhook_url, json=payload)
 
-starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
-subprocess.Popen(['cmd', '/c', starter_script_path])
+os.chdir('../config')
+with open("conf.txt", "r") as conf_file:
+    conf_lines = conf_file.readlines()
+
+use_ngrok = False
+autongrok = False
+
+for line in conf_lines:
+    if line.startswith("#"):
+        continue
+    parts = line.strip().split('=')
+    if len(parts) == 2:
+        key, value = parts[0].strip(), parts[1].strip()
+        if key == "use-ngrok" and value.lower() == "true":
+            use_ngrok = True
+        elif key == "autongrok" and value.lower() == "true":
+            autongrok = True
+
+if autongrok:
+    starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
+    subprocess.Popen(['cmd', '/c', starter_script_path])
+
 
 time.sleep(10)
 
