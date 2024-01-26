@@ -7,11 +7,12 @@ import platform
 def clear_screen():
     system = platform.system().lower()
 
-    if 'windows' in system:
+    if 'linux' in system or 'darwin' in system:
+        os.system('clear')
+    elif 'windows' in system:
         os.system('cls')
     else:
-        print("Average Hello Kitty OS user:")
-        print("Ok, but serious... not Linux, Darwin, or Windows?! Wuh da heellll.?!")
+        print("Couldn't clear screen. Please stop using HelloKitty OS.")
 
 def main_menu():
     clear_screen()
