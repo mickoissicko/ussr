@@ -6,7 +6,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
-WEBHOOK_FILE_PATH = os.path.join('archlinux', 'server-arch', 'webhook.txt')
+WEBHOOK_FILE_PATH = ''
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -36,8 +36,8 @@ def send_discord_webhook(webhook_url, region, url):
     payload = {"content": message}
     requests.post(webhook_url, json=payload)
 
-starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
-subprocess.Popen(['cmd', '/c', starter_script_path], shell=True)
+starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.sh')
+subprocess.Popen(['bash', starter_script_path])
 
 time.sleep(10)
 

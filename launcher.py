@@ -17,8 +17,9 @@ def setup_dependencies_win():
     if choice.lower() == 'n':
         os.chdir('windows/')
         os.system('setup/')
-        bsc = 'windows/setup/prerequisites.bat'
+        batch_script_path = 'windows/setup/prerequisites.bat'
         subprocess.run([batch_script_path], shell=True)
+
         os.chdir('..')
 
 def ussr_for_arch():

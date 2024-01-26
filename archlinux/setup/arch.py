@@ -46,11 +46,14 @@ def launch_ussr():
 
     os.system(f"ngrok config add-authtoken {autk}")
     
+    a = os.system('ls')
+    print(a)
+
+    os.chdir('../setup/')
     print("Starting the .sh script...")
     os.system("bash start.sh")
 
 def config_ngrok():
-    
 
     os.chdir('archlinux/server-arch/config')
 
