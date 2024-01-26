@@ -1,0 +1,15 @@
+|| HOW TO INSTALL
+|| IF YOU ENCOUNTER ERRORS DURING INSTALLATION, CHECK THE WIKI TO MANUALLY INSTALL DEPENDENCIES
+|| https://mick.gdn/wiki/ussr.html
+||
+|| ON ARCH:
+||
+|| change DIR to the main directory, then execute:
+|| ./launcher.sh
+|| If that doesn't work, try
+|| chmod +x launcher.sh
+|| ./launcher.sh
+||
+|| ON WINDOWS:
+||
+|| run launcher.bat as administrator
