@@ -114,12 +114,20 @@ def configr():
 
     user_input = input("Do you want to enable automatic NGROK start? [Y/N]")
 
+    with open(conf_file_path, 'r') as file:
+        lines = file.readlines()
+
+    user_input = input("Do you want to enable automatic NGROK start? [Y/N]")
+
     if user_input == 'y':
         lines[6] = 'autongrok=True\n'
     elif user_input == 'n':
         lines[6] = '# autongrok=True\n'
     else:
         print("y or n, no inbetweens. Jeez, indecisive enough?")
+
+    with open(conf_file_path, 'w') as file:
+        file.writelines(lines)
 
 def main_menu():
     while True:
