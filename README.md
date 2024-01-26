@@ -39,4 +39,19 @@ The size of the program after installation on:
 * *Excludes*: `C-URL`, `Tar`, `PyPi`, `Python`
 
 # Compatibility
-This application is not cross-platform. As of now, it only works (BEST; meaning without additional modifications) on Archlinux & Windows 10/11 (64-bit).
+This application works on:
+
+* MacOS (Darwin)
+* Linux (Debian, Arch, Gentoo, etc.)
+* Windows (W7-W11 x86-64)
+
+So, yes, you **could** say it is cross-platform, however for these OSes:
+
+* MacOS
+* Gentoo or Debian
+* Windows (7, and below), (any, but 32-bit)
+
+It may need additional modification to get it working correctly. Especially for MacOS, because the `.sh` scripts are catered to Arch, and use the `pacman` package manager. Debian/Gentoo do not use Pacman.
+
+
+
