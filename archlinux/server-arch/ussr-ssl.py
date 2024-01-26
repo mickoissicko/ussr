@@ -25,7 +25,7 @@ if use_ngrok:
 app = Flask(__name__)
 
 MC_FOLDER = '../.mc/'
-DISCORD_WEBHOOK_URL_FILE = 'webhook.txt'
+DISCORD_WEBHOOK_URL_FILE = os.path.join('archlinux', 'server-arch', 'config', 'webhook.txt')
 
 def get_discord_webhook_url():
     webhook_url = None

@@ -42,6 +42,7 @@ def launch_ussr():
                 print("Invalid input. Assuming 'n'. Proceeding...")
     else:
         print("Enter your Ngrok authentication token:")
+        print("This is optional. If you are NOT using Ngrok, feel free to skip by pressing enter.")
         webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
         autk = input("Your NGROK token: ")
        
@@ -115,13 +116,14 @@ def config_ngrok():
             print("Invalid response. Keeping the file as is.")
 
 def create_webhook_file():
-    os.chdir('archlinux/server-arch')
+    os.chdir('archlinux/server-arch/config')
     
     if not os.path.isfile('webhook.txt'):
         with open('webhook.txt', 'w') as file:
             webhook_url = input("Enter your Discord App webhook: ")
             file.write(webhook_url)
             print("Webhook URL stored in webhook.txt")
+
 
 if __name__ == "__main__":
     while True:

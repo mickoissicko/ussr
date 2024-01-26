@@ -53,6 +53,7 @@ def launch_ussr():
             else:
                 print("Invalid input. Assuming 'n'. Proceeding...")
     else:
+        print("This is optional. If you are NOT using Ngrok, feel free to skip by pressing enter.")
         print("Enter your Ngrok authentication token:")
         webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
         autk = input("Your NGROK token: ")

@@ -6,7 +6,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
-WEBHOOK_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'webhook.txt')
+WEBHOOK_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config', 'webhook.txt')
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -44,7 +44,6 @@ subprocess.Popen(['bash', starter_script_path])
 
 time.sleep(10)
 
-WEBHOOK_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'webhook.txt')
 def main():
     if check_lock_file():
         print("Another instance is already running. Exiting.")
