@@ -19,6 +19,8 @@ def clear_screen():
         print("Ok, but serious... not Linux, Darwin, or Windows?! Wuh da heellll.?!")
 
 def launch_ussr():
+    clear_screen()
+
     if os.path.exists("token.txt"):
         with open("token.txt", "r") as file:
             autk = file.read().strip()
@@ -55,7 +57,8 @@ def launch_ussr():
     os.system("bash start.sh")
 
 def config_ngrok():
-
+    clear_screen()
+    
     os.chdir('archlinux/server-arch/config')
 
     if not os.path.isfile('conf.txt'):

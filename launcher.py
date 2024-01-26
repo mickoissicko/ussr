@@ -3,8 +3,19 @@
 import os
 import webbrowser
 import subprocess
+import platform
+
+def clear_screen():
+    system = platform.system().lower()
+
+    if 'windows' in system:
+        os.system('cls')
+    else:
+        print("Average Hello Kitty OS user:")
+        print("Ok, but serious... not Linux, Darwin, or Windows?! Wuh da heellll.?!")
 
 def setup_dependencies_arch():
+    clear_screen()
     choice = input("\nDo you have the dependencies set up already? [y/n] ")
     if choice.lower() == 'n':
         os.chdir('archlinux/')
@@ -13,6 +24,7 @@ def setup_dependencies_arch():
         os.chdir('..')
 
 def setup_dependencies_win():
+    clear_screen()
     choice = input("\nDo you have the dependencies set up already? [y/n] ")
     if choice.lower() == 'n':
         os.chdir('windows/')
@@ -23,15 +35,19 @@ def setup_dependencies_win():
         os.chdir('..')
 
 def ussr_for_arch():
+    clear_screen()
     os.system('python archlinux/setup/arch.py')
 
 def ussr_for_win():
+    clear_screen()
     os.system('python windows/setup/win.py')
 
 def mc_server():
+    clear_screen()
     os.system('python prerequisites/config.py')
 
 def main_menu():
+    clear_screen()
     print("SETUP PAGE -- LAUNCHER, MAIN MENU")
     print("[1] Dependency setup for Windows")
     print("[2] Dependency setup for Arch")

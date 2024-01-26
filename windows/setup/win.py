@@ -2,6 +2,7 @@
 
 import os
 import webbrowser
+import platform
 
 def clear_screen():
     system = platform.system().lower()
@@ -19,6 +20,7 @@ def main_menu():
     print("[2] Use Ngrok")
 
 def launch_ussr():
+    clear_screen()
 
     path = input("\nDid you configure paths? [y/n]")
 
@@ -64,7 +66,7 @@ def launch_ussr():
     os.system('cmd /c start.bat')
 
 def config_ngrok():
-    
+    clear_screen()
 
     os.chdir('windows/server-windows/config')
 
