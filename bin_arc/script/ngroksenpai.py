@@ -1,3 +1,4 @@
+
 import subprocess
 import requests
 import json
@@ -6,7 +7,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
-WEBHOOK_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config', 'webhook.txt')
+WEBHOOK_FILE_PATH = '../../config/webhook.txt'
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -28,11 +29,8 @@ def check_tunnel(curl_command, target_string):
 
 # thx chatgpt lmao
 def get_discord_webhook_url(file_path):
-    webhook_url = None
-    if os.path.exists(file_path):
-        with open(file_path, 'r') as file:
-            webhook_url = file.read().strip()
-    return webhook_url
+    with open(file_path, 'r') as file:
+        return file.read().strip()
 
 def send_discord_webhook(webhook_url, region, url):
     message = f"* {region} === `{url}`"

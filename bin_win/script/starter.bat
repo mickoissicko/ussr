@@ -1,3 +1,5 @@
+:: starter.bat
+
 @echo off
 
 timeout /t 1 /nobreak
@@ -13,8 +15,4 @@ start /b ngrok tcp --region in 25565
 
 timeout /t 15 /nobreak
 
-cd /d C:\path\to\ngrok
-rem replace this with the path of your ngrok.exe
-rem example path: D:\Ngrok\bin\ngrok.exe
-
-python ngroksenpai.py
+cd ../../ngrok/ngrok.exe

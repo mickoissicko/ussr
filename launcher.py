@@ -1,8 +1,5 @@
-# !launcher.py
-
+# root/launcher.py
 import os
-import webbrowser
-import subprocess
 import platform
 
 def clear_screen():
@@ -15,35 +12,38 @@ def clear_screen():
     else:
         print("Couldn't clear screen. Please stop using HelloKitty OS.")
 
+def setup_dependencies_win():
+    clear_screen()
+    batch_script_path = 'dependencies/prerequisites.bat'
+    subprocess.run([batch_script_path], shell=True)
+    os.chdir('..')
+
 def setup_dependencies_arch():
     clear_screen()
-    os.chdir('archlinux/')
+    os.chdir('dependencies')
     os.system('chmod +x install.sh')
     os.system('./install.sh')
     os.chdir('..')
 
-def setup_dependencies_win():
-    clear_screen()
-    os.chdir('windows/setup')
-    batch_script_path = 'windows/setup/prerequisites.bat'
-    subprocess.run([batch_script_path], shell=True)
-
-    os.chdir('..')
-
 def ussr_for_arch():
     clear_screen()
-    subprocess.run("sudo echo hi", shell=True)
-    os.system('python archlinux/setup/arch.py')
+    os.chdir('scripts')
+    os.system('chmod +x start.sh')
+    os.system('./start.sh')
+    os.chdir('..')
 
 def ussr_for_win():
     clear_screen()
-    os.system('python windows/setup/win.py')
+    batch_script_path = 'scripts/start.bat'
+    subprocess.run([batch_script_path], shell=True)
+    os.chdir('..')
 
 def mc_server():
     clear_screen()
-    os.system('python prerequisites/config.py')
+    os.system('python dependencies/config.py')
 
 def main_menu():
+    os.chdir('..')
     clear_screen()
     print("SETUP PAGE -- LAUNCHER, MAIN MENU")
     print("[1] Dependency setup for Windows")

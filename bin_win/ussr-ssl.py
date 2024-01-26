@@ -1,12 +1,10 @@
-import os
-import sys
-import time
-import json
-import requests
 import subprocess
+import os
+import requests
 from flask import Flask, render_template
+import time
 
-conf_file_path = 'config/conf.txt'
+conf_file_path = '../config/conf.txt'
 use_ngrok = False
 
 with open(conf_file_path, 'r') as conf_file:
@@ -24,32 +22,22 @@ if use_ngrok:
 
 app = Flask(__name__)
 
-MC_FOLDER = '../.mc/'
-DISCORD_WEBHOOK_URL_FILE = os.path.join('archlinux', 'server-arch', 'config', 'webhook.txt')
+MC_FOLDER = '.mc/'
+DISCORD_WEBHOOK_URL_FILE = '../config/webhook.txt'
 
 def get_discord_webhook_url():
     webhook_url = None
-    webhook_file_path = os.path.join('archlinux', 'server-arch', DISCORD_WEBHOOK_URL_FILE)
-    
-    if os.path.exists(webhook_file_path):
-        with open(webhook_file_path, 'r') as file:
+    if os.path.exists(DISCORD_WEBHOOK_URL_FILE):
+        with open(DISCORD_WEBHOOK_URL_FILE, 'r') as file:
             webhook_url = file.read().strip()
-
     return webhook_url
 
 # thx chatgpt lmao
 DISCORD_WEBHOOK_URL = get_discord_webhook_url()
 
 def send_discord_message(content):
-    if DISCORD_WEBHOOK_URL is not None:
-        data = {'content': content}
-        try:
-            requests.post(DISCORD_WEBHOOK_URL, json=data)
-        except requests.exceptions.RequestException as e:
-            print(f"Error sending Discord message: {e}")
-    else:
-        print("Discord webhook URL is not available. Cannot send message.")
-
+    data = {'content': content}
+    requests.post(DISCORD_WEBHOOK_URL, json=data)
 
 @app.route('/')
 def index():
@@ -59,16 +47,13 @@ def index():
 def start():
     send_discord_message('``server starting...``')
     
-    if DISCORD_WEBHOOK_URL is not None:
-        start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/fabric.jar']
-        subprocess.Popen(start_command, cwd=MC_FOLDER)
-
-        time.sleep(27)
-
-        send_discord_message('``server started``')
-        return "Server started successfully!"
-    else:
-        return "Error starting server: Discord webhook URL is not available. Noob. Heh."
+    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/fabric.jar']
+    subprocess.Popen(start_command, cwd=MC_FOLDER)
+    
+    time.sleep(27)
+    
+    send_discord_message('``server started``')
+    return "Server started successfully!"
 
 @app.route('/stop')
 def stop():

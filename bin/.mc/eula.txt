@@ -1,0 +1,3 @@
+# READ THE END USER LISENCE AGREEMENT https://aka.ms/MinecraftEULA
+# This is already set to true so you don't have to manually edit this file
+eula=true

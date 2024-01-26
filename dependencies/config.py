@@ -24,10 +24,10 @@ versions = [
 ]
 
 os.chdir('..')
-download_directory = ".mc/"
+download_directory = "../bin/.mc/"
 os.makedirs(download_directory, exist_ok=True)
 
-print("Minecraft Version Downloader:")
+print("Minecraft Server Downloader:")
 for i, (version, _) in enumerate(versions, 1):
     print(f"[{i}] {version}")
 

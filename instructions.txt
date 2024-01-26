@@ -1,3 +1,0 @@
-|| Installing it is super simple now!
-|| Just read the docs @ mick.gdn/wiki/ussr.html
-|| Only change the paths, and when you are done, run the launcher.py file! >:)
