@@ -41,6 +41,27 @@ def mc_server():
     clear_screen()
     os.system('python ../dependencies/config.py')
 
+def configr():
+    conf_file_path = '../config/conf.txt'
+    
+    with open(conf_file_path, 'r') as file:
+        lines = file.readlines()
+
+    user_input = input("Do you want to enable NGROK? (Y/N): ").strip().lower()
+
+    if user_input == 'y':
+        lines[5] = '# use-ngrok=True\n'
+    elif user_input == 'n':
+        lines[5] = 'use-ngrok=True\n'
+    else:
+        print("y or n, no inbetweens. Jeez, indecisive enough?")
+
+    with open(conf_file_path, 'w') as file:
+        file.writelines(lines)
+
+    print("enabled! yay! wow! fun!")
+
+
 def main_menu():
     os.chdir('../scripts')
     clear_screen()
@@ -50,6 +71,7 @@ def main_menu():
     print("[3] USSR for Arch")
     print("[4] USSR for Windows")
     print("[5] Install Minecraft")
+    print("[6] Configure USSR")
     print("HEADS UP! Before you can proceed, please configure the paths if you haven't already.")
     print("Don't know how to? See the guide: https://mick.gdn/wiki/ussr.html")
 
@@ -65,6 +87,8 @@ def main_menu():
         ussr_for_win()
     elif choice == '5':
         mc_server()
+    elif choice == '6':
+        configr()
     else:
         print("Invalid choice. Please select a valid option.")
 
