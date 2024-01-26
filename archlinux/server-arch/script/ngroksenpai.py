@@ -6,7 +6,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
-WEBHOOK_FILE_PATH = ''
+WEBHOOK_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'webhook.txt')
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -28,8 +28,11 @@ def check_tunnel(curl_command, target_string):
 
 # thx chatgpt lmao
 def get_discord_webhook_url(file_path):
-    with open(file_path, 'r') as file:
-        return file.read().strip()
+    webhook_url = None
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            webhook_url = file.read().strip()
+    return webhook_url
 
 def send_discord_webhook(webhook_url, region, url):
     message = f"* {region} === `{url}`"
@@ -41,6 +44,7 @@ subprocess.Popen(['bash', starter_script_path])
 
 time.sleep(10)
 
+WEBHOOK_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'webhook.txt')
 def main():
     if check_lock_file():
         print("Another instance is already running. Exiting.")
