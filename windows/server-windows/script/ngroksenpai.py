@@ -6,6 +6,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
+WEBHOOK_FILE_PATH = os.path.join('archlinux', 'server-arch', 'webhook.txt')
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -25,6 +26,11 @@ def check_tunnel(curl_command, target_string):
         return output
     return None
 
+# thx chatgpt lmao
+def get_discord_webhook_url(file_path):
+    with open(file_path, 'r') as file:
+        return file.read().strip()
+
 def send_discord_webhook(webhook_url, region, url):
     message = f"* {region} === `{url}`"
     payload = {"content": message}
@@ -43,6 +49,8 @@ def main():
     create_lock_file()
 
     try:
+        discord_webhook_url = get_discord_webhook_url(WEBHOOK_FILE_PATH)
+
         curl_commands = [
             "curl 127.0.0.1:4040/api/tunnels",
             "curl 127.0.0.1:4041/api/tunnels",
@@ -52,8 +60,6 @@ def main():
         ]
 
         target_string = "tcp://"
-
-        discord_webhook_url = "discord_webhook_for_sending_ngrok_urls"
 
         region_mapping = {
             ".au": "Sydney",

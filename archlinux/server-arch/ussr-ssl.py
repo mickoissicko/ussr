@@ -22,8 +22,8 @@ if use_ngrok:
 
 app = Flask(__name__)
 
-MC_FOLDER = '.mc/'
-DISCORD_WEBHOOK_URL_FILE = 'webhook.txt'  # Updated line
+MC_FOLDER = '../.mc/'
+DISCORD_WEBHOOK_URL_FILE = 'webhook.txt'
 
 def get_discord_webhook_url():
     webhook_url = None
@@ -35,6 +35,7 @@ def get_discord_webhook_url():
 
     return webhook_url
 
+# thx chatgpt lmao
 DISCORD_WEBHOOK_URL = get_discord_webhook_url()
 
 def send_discord_message(content):
@@ -61,7 +62,7 @@ def start():
 def stop():
     send_discord_message('``server stopping...``')
     
-    stop_script_path = '/path/to/ussr/directory/script/stop.py'
+    stop_script_path = 'script/stop.py'
     subprocess.Popen(['python', stop_script_path])
     
     time.sleep(13)
