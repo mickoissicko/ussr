@@ -48,5 +48,7 @@ python -m pip install flask
 python -m pip install mcrcon
 python -m pip install requests
 
+cd setup
+"prerequisites.bat"
 del %pythonInstallerPath%
 

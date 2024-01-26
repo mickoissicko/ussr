@@ -2,13 +2,18 @@
 
 sudo pacman -Sy python python-pip
 sudo pacman -S python-requests
+sudo pacman -S git
 
-cd server/
+cd tmp/
 git clone https://aur.archlinux.org/python-flask-git.git
 cd python-flask-git
 makepkg -si
 
-cd script/
+git clone https://aur.archlinux.org/ngrok.git
+cd ngrok
+makepkg -si
+
+cd server-arch/script/
 git clone https://aur.archlinux.org/mcrcon.git
 cd mcrcon
 makepkg -si
