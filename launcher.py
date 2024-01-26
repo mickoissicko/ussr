@@ -17,22 +17,18 @@ def clear_screen():
 
 def setup_dependencies_arch():
     clear_screen()
-    choice = input("\nDo you have the dependencies set up already? [y/n] ")
-    if choice.lower() == 'n':
-        os.chdir('archlinux/')
-        os.system('chmod +x install.sh')
-        os.system('./install.sh')
-        os.chdir('..')
+    os.chdir('archlinux/')
+    os.system('chmod +x install.sh')
+    os.system('./install.sh')
+    os.chdir('..')
 
 def setup_dependencies_win():
     clear_screen()
-    choice = input("\nDo you have the dependencies set up already? [y/n] ")
-    if choice.lower() == 'n':
-        os.chdir('windows/setup')
-        batch_script_path = 'windows/setup/prerequisites.bat'
-        subprocess.run([batch_script_path], shell=True)
+    os.chdir('windows/setup')
+    batch_script_path = 'windows/setup/prerequisites.bat'
+    subprocess.run([batch_script_path], shell=True)
 
-        os.chdir('..')
+    os.chdir('..')
 
 def ussr_for_arch():
     clear_screen()
@@ -57,22 +53,21 @@ def main_menu():
     print("[5] Install Minecraft")
     print("HEADS UP! Before you can proceed, please configure the paths if you haven't already.")
     print("Don't know how to? See the guide: https://mick.gdn/wiki/ussr.html")
-    print("Choice: ")
+
+    choice = input("Choice: ")
+
+    if choice == '1':
+        setup_dependencies_win()
+    elif choice == '2':
+        setup_dependencies_arch()
+    elif choice == '3':
+        ussr_for_arch()
+    elif choice == '4':
+        ussr_for_win()
+    elif choice == '5':
+        mc_server()
+    else:
+        print("Invalid choice. Please select a valid option.")
 
 if __name__ == "__main__":
-    while True:
-        main_menu()
-        choice = input()
-
-        if choice == '1':
-            setup_dependencies_win()
-        elif choice == '2':
-            setup_dependencies_arch()
-        elif choice == '3':
-            ussr_for_arch()
-        elif choice == '4':
-            ussr_for_win()
-        elif choice == '5':
-            mc_server()
-        else:
-            print("Invalid choice. Please choose again.")
+    main_menu()
