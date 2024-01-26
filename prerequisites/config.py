@@ -45,7 +45,7 @@ selected_version = versions[choice - 1]
 version_name, version_url = selected_version
 download_path = os.path.join(download_directory, "server.jar")
 
-print("WARNING: STABILITY IS NOT GUARANTEED IF YOU ARE USING ON OLDER MINECRAFT VERSIONS!")
+print("WARNING: STABILITY IS NOT GUARANTEED IF YOU ARE USING OLDER MINECRAFT VERSIONS!")
 print(f"\nDownloading {version_name}...")
 urllib.request.urlretrieve(version_url, download_path)
 exit()
