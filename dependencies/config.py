@@ -1,5 +1,5 @@
 import os
-import urllib.request
+import requests
 
 versions = [
     ("1.20.4 (Last message, 12 years ago)", "https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar"),
@@ -24,28 +24,24 @@ versions = [
 ]
 
 os.chdir('..')
-download_directory = "/bin/.mc/"
+download_directory = "bin/.mc/"
 os.makedirs(download_directory, exist_ok=True)
 
-print("Minecraft Server Downloader:")
-for i, (version, _) in enumerate(versions, 1):
-    print(f"[{i}] {version}")
+def download_server(version, url, download_directory):
+    file_name = os.path.join(download_directory, "server.jar")
+    response = requests.get(url)
+    with open(file_name, 'wb') as file:
+        file.write(response.content)
+    print(f"Downloaded {version} to {file_name}")
 
-while True:
+if __name__ == "__main__":
+    print("Minecraft Server Downloader:")
+    for i, (version, _) in enumerate(versions, 1):
+        print(f"[{i}] {version}")
+
     try:
-        choice = int(input("Choose a version to download (enter the corresponding number): "))
-        if 1 <= choice <= len(versions):
-            break
-        else:
-            print("Invalid choice. Please enter a valid number.")
-    except ValueError:
-        print("Invalid input. Please enter a number.")
-
-selected_version = versions[choice - 1]
-version_name, version_url = selected_version
-download_path = os.path.join(download_directory, "server.jar")
-
-print("WARNING: STABILITY IS NOT GUARANTEED IF YOU ARE USING OLDER MINECRAFT VERSIONS!")
-print(f"\nDownloading {version_name}...")
-urllib.request.urlretrieve(version_url, download_path)
-exit()
+        choice = int(input("Enter the number corresponding to the version you want to download: "))
+        selected_version = versions[choice - 1]
+        download_server(*selected_version, download_directory)
+    except (ValueError, IndexError):
+        print("Invalid choice. Please enter a valid number.")
