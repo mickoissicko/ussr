@@ -28,8 +28,7 @@ def setup_dependencies_win():
     clear_screen()
     choice = input("\nDo you have the dependencies set up already? [y/n] ")
     if choice.lower() == 'n':
-        os.chdir('windows/')
-        os.system('setup/')
+        os.chdir('windows/setup')
         batch_script_path = 'windows/setup/prerequisites.bat'
         subprocess.run([batch_script_path], shell=True)
 
