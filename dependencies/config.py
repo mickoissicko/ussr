@@ -24,7 +24,7 @@ versions = [
 ]
 
 os.chdir('..')
-download_directory = "../bin/.mc/"
+download_directory = "/bin/.mc/"
 os.makedirs(download_directory, exist_ok=True)
 
 print("Minecraft Server Downloader:")
