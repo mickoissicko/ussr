@@ -36,6 +36,7 @@ def setup_dependencies_win():
 
 def ussr_for_arch():
     clear_screen()
+    subprocess.run("sudo echo hi", shell=True)
     os.system('python archlinux/setup/arch.py')
 
 def ussr_for_win():
