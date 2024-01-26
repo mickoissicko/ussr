@@ -39,8 +39,15 @@ def get_discord_webhook_url():
 DISCORD_WEBHOOK_URL = get_discord_webhook_url()
 
 def send_discord_message(content):
-    data = {'content': content}
-    requests.post(DISCORD_WEBHOOK_URL, json=data)
+    if DISCORD_WEBHOOK_URL is not None:
+        data = {'content': content}
+        try:
+            requests.post(DISCORD_WEBHOOK_URL, json=data)
+        except requests.exceptions.RequestException as e:
+            print(f"Error sending Discord message: {e}")
+    else:
+        print("Discord webhook URL is not available. Cannot send message.")
+
 
 @app.route('/')
 def index():
@@ -50,13 +57,16 @@ def index():
 def start():
     send_discord_message('``server starting...``')
     
-    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/fabric.jar']
-    subprocess.Popen(start_command, cwd=MC_FOLDER)
-    
-    time.sleep(27)
-    
-    send_discord_message('``server started``')
-    return "Server started successfully!"
+    if DISCORD_WEBHOOK_URL is not None:
+        start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/fabric.jar']
+        subprocess.Popen(start_command, cwd=MC_FOLDER)
+
+        time.sleep(27)
+
+        send_discord_message('``server started``')
+        return "Server started successfully!"
+    else:
+        return "Error starting server: Discord webhook URL is not available. Noob. Heh."
 
 @app.route('/stop')
 def stop():
