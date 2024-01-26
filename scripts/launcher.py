@@ -89,10 +89,6 @@ def ussr_for_win():
 
 def mc_server():
     clear_screen()
-    os.system('sudo python ../dependencies/config.py')
-
-def mc_server_win():
-    clear_screen
     os.system('python ../dependencies/config.py')
 
 def configr():
@@ -146,9 +142,8 @@ def main_menu():
         print("[2] Dependency setup for Arch")
         print("[3] USSR for Arch")
         print("[4] USSR for Windows")
-        print("[5] Install Minecraft Server (Arc)")
-        print("[6] Install Minecraft Server (Win)")
-        print("[7] Configure USSR")
+        print("[5] Install Minecraft Server")
+        print("[6] Configure USSR")
         print("[X] Quit")
         print("HEADS UP! Before you can proceed, please configure the paths if you haven't already.")
         print("Don't know how to? See the guide: https://mick.gdn/wiki/ussr.html")
@@ -166,8 +161,6 @@ def main_menu():
         elif choice == '5':
             mc_server()
         elif choice == '6':
-            mc_server_win()
-        elif choice == '7':
             configr()
         elif choice.lower() == 'x' or 'X':
             break 
