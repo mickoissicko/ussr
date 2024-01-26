@@ -1,3 +1,5 @@
+# bin/ussr-ssl.py
+
 import subprocess
 import os
 import requests
@@ -22,7 +24,7 @@ if use_ngrok:
 
 app = Flask(__name__)
 
-MC_FOLDER = '.mc/'
+MC_FOLDER = 'bin/.mc/'
 DISCORD_WEBHOOK_URL_FILE = '../config/webhook.txt'
 
 def get_discord_webhook_url():
@@ -46,8 +48,7 @@ def index():
 @app.route('/start')
 def start():
     send_discord_message('``server starting...``')
-    
-    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/fabric.jar']
+    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', f'{MC_FOLDER}/server.jar']
     subprocess.Popen(start_command, cwd=MC_FOLDER)
     
     time.sleep(27)

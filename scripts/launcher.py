@@ -2,6 +2,7 @@
 import os
 import platform
 import webbrowser
+import subprocess
 
 def clear_screen():
     system = platform.system().lower()
@@ -72,7 +73,10 @@ def ussr_for_arch():
     else:
         print("Only 'y' or 'n'. Indecisive enough?")
 
-    os.system('ngrok config add-authtoken {ngrok_token}')
+    with open('../config/token.txt', 'r') as file:
+        ngrok_token = file.read().strip()
+    os.system(f'ngrok config add-authtoken {ngrok_token}')
+    
     os.system('chmod +x start.sh')
     os.system('./start.sh')
     os.chdir('../scripts')

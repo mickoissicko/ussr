@@ -1,4 +1,3 @@
-
 import subprocess
 import requests
 import json
@@ -7,7 +6,6 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
-WEBHOOK_FILE_PATH = '../config/webhook.txt'
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -27,40 +25,20 @@ def check_tunnel(curl_command, target_string):
         return output
     return None
 
-# thx chatgpt lmao
-def get_discord_webhook_url(file_path):
-    with open(file_path, 'r') as file:
-        return file.read().strip()
-
 def send_discord_webhook(webhook_url, region, url):
     message = f"* {region} === `{url}`"
     payload = {"content": message}
     requests.post(webhook_url, json=payload)
 
-os.chdir('../config')
-with open("conf.txt", "r") as conf_file:
-    conf_lines = conf_file.readlines()
-
-use_ngrok = False
-autongrok = False
-
-for line in conf_lines:
-    if line.startswith("#"):
-        continue
-    parts = line.strip().split('=')
-    if len(parts) == 2:
-        key, value = parts[0].strip(), parts[1].strip()
-        if key == "use-ngrok" and value.lower() == "true":
-            use_ngrok = True
-        elif key == "autongrok" and value.lower() == "true":
-            autongrok = True
-
-if autongrok:
-    starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
-    subprocess.Popen(['cmd', '/c', starter_script_path])
-
-
-time.sleep(10)
+def read_config(file_path):
+    config = {}
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            if '=' in line:
+                key, value = line.strip().split('=')
+                config[key.strip()] = value.strip()
+    return config
 
 def main():
     if check_lock_file():
@@ -70,7 +48,13 @@ def main():
     create_lock_file()
 
     try:
-        discord_webhook_url = get_discord_webhook_url(WEBHOOK_FILE_PATH)
+        config = read_config('../config/conf.txt')
+
+        if config.get('autongrok') == 'True':
+            starter_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'starter.bat')
+            subprocess.Popen(['cmd', '/c', starter_script_path])
+        time.sleep(15)
+        print("WORKING")
 
         curl_commands = [
             "curl 127.0.0.1:4040/api/tunnels",
@@ -81,6 +65,15 @@ def main():
         ]
 
         target_string = "tcp://"
+
+        webhook_file_path = '../config/webhook.txt'
+        if os.path.exists(webhook_file_path):
+            with open(webhook_file_path, 'r') as webhook_file:
+
+                discord_webhook_url = webhook_file.read().strip() # webhook func
+        else:
+            print("Error: webhook.txt not found. Please create the file with your Discord webhook URL and rerun the application.")
+            sys.exit(1)
 
         region_mapping = {
             ".au": "Sydney",
