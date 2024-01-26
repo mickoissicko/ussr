@@ -6,7 +6,7 @@ cd ../config
 
 if exist lock.pa (
     cd ../bin_win
-    python ussr-ssl.py
+    py ussr-ssl.py
 ) else (
     echo Please install dependencies first.
     echo Exiting in 3 seconds

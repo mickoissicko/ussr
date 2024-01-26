@@ -16,12 +16,14 @@ def clear_screen():
 
 def setup_dependencies_win():
     clear_screen()
+    print("THIS MODE IS DEPRECATED, PLEASE USE THE LAUNCHER.BAT SCRIPT!!")
     batch_script_path = '../dependencies/prerequisites.bat'
     subprocess.run([batch_script_path], shell=True)
     os.chdir('../scripts')
 
 def setup_dependencies_arch():
     clear_screen()
+    print("THIS MODE IS DEPRECATED, PLEASE USE THE LAUNCHER.SH SCRIPT!!")
     os.chdir('../dependencies')
     os.system('chmod +x install.sh')
     os.system('./install.sh')
@@ -83,9 +85,56 @@ def ussr_for_arch():
 
 def ussr_for_win():
     clear_screen()
-    batch_script_path = 'start.bat'
-    subprocess.run([batch_script_path], shell=True)
-    os.chdir('../scripts')
+
+    print("OPTIONAL: If you are not using Ngrok, feel free to use Nn to skip.")
+    yesnop = input("Did you configure Ngrok token? [Y/N/Nn]")
+
+    if yesnop.lower() == 'y':
+        pass
+
+    elif yesnop.lower() == 'n':
+        print("INFO: Your NGROK Authtoken is available at:")
+        print("https://dashboard.ngrok.com/get-started/your-authtoken")
+        ngrok_token = input("Enter NGROK authentication token: ")
+
+        webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
+
+        with open('../config/token.txt', 'w') as file:
+            file.write(f"{ngrok_token}")
+
+    elif yesnop.lower() == 'Nn':
+        pass
+    
+    else:
+        print("Only 'y' or 'n'. Indecisive enough?")
+
+    clear_screen()
+    print("OPTIONAL: If you are not using a webhook, feel free to use Nn to skip.")
+    print("TIP: It is recommended to use a webhook if you will be using tools such as Tmux!")
+
+    yesnop = input("Did you configure webhook URL? [Y/N/Nn]")
+
+    if yesnop.lower() == 'y':
+        pass
+
+    elif yesnop.lower() == 'n':
+        webhook_url = input("Enter webhook URL: ")
+
+        with open('../config/webhook.txt', 'w') as file:
+            file.write(f"{webhook_url}")
+
+    elif yesnop.lower() == 'Nn':
+        pass
+    
+    else:
+        print("Only 'y' or 'n'. Indecisive enough?")
+
+    with open('../config/token.txt', 'r') as file:
+        ngrok_token = file.read().strip()
+    os.system(f'ngrok config add-authtoken {ngrok_token}')
+    
+    os.system('./start.bat')
+    os.chdir('../scripts')	
 
 def mc_server():
     clear_screen()
