@@ -37,3 +37,6 @@ The size of the program after installation on:
 * **Linux/Darwin**: `34.93 MB`
 * *Includes*: `Ngrok`, `MCRCON`, `Flask`, `Requests`
 * *Excludes*: `C-URL`, `Tar`, `PyPi`, `Python`
+
+# Compatibility
+This application is not cross-platform. As of now, it only works (BEST; meaning without additional modifications) on Archlinux & Windows 10/11 (64-bit).
