@@ -18,18 +18,6 @@ def clear_screen():
         print("Ok, but serious... not Linux, Darwin, or Windows?! Wuh da heellll.?!")
 
 def launch_ussr():
-
-    path = input("\nDid you configure paths? [y/n]")
-
-    if path == "y":
-        pass
-    elif path == "n":
-        print("Read the guide!")
-        webbrowser.open("https://mick.gdn/wiki/ussr.html")
-    else:
-        print("Read the guide!")
-        webbrowser.open("https://mick.gdn/wiki/ussr.html")
-    
     if os.path.exists("token.txt"):
         with open("token.txt", "r") as file:
             autk = file.read().strip()
@@ -118,13 +106,22 @@ def config_ngrok():
         else:
             print("Invalid response. Keeping the file as is.")
 
-if __name__ == "__main__":
+def create_webhook_file():
+    os.chdir('archlinux/server-arch')
+    
+    if not os.path.isfile('webhook.txt'):
+        with open('webhook.txt', 'w') as file:
+            webhook_url = input("Enter your Discord App webhook: ")
+            file.write(webhook_url)
+            print("Webhook URL stored in webhook.txt")
 
+if __name__ == "__main__":
     while True:
         main_menu()
         choice = input("Enter your choice:  ")
 
         if choice == "1":
+            create_webhook_file()
             launch_ussr()
             break
         elif choice == "2":

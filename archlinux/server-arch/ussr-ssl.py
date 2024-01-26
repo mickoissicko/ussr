@@ -17,13 +17,25 @@ with open(conf_file_path, 'r') as conf_file:
             break
 
 if use_ngrok:
-    ngroksenpai_script_path = '/path/to/ussr/directory/script/ngroksenpai.py'
+    ngroksenpai_script_path = 'script/ngroksenpai.py'
     subprocess.Popen(['python', ngroksenpai_script_path])
 
 app = Flask(__name__)
 
-MC_FOLDER = '/path/to/mc/server'
-DISCORD_WEBHOOK_URL = 'webhook_for_server_status'
+MC_FOLDER = '.mc/'
+DISCORD_WEBHOOK_URL_FILE = 'webhook.txt'  # Updated line
+
+def get_discord_webhook_url():
+    webhook_url = None
+    webhook_file_path = os.path.join('archlinux', 'server-arch', DISCORD_WEBHOOK_URL_FILE)
+    
+    if os.path.exists(webhook_file_path):
+        with open(webhook_file_path, 'r') as file:
+            webhook_url = file.read().strip()
+
+    return webhook_url
+
+DISCORD_WEBHOOK_URL = get_discord_webhook_url()
 
 def send_discord_message(content):
     data = {'content': content}

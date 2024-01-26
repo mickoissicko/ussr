@@ -2,6 +2,7 @@
 
 import os
 import webbrowser
+import subprocess
 
 def setup_dependencies_arch():
     choice = input("\nDo you have the dependencies set up already? [y/n] ")
@@ -21,38 +22,24 @@ def setup_dependencies_win():
         os.chdir('..')
 
 def ussr_for_arch():
-    
-    paths = input("Did you configure the paths? [y/n]")
-    if paths == "y":
-        pass
-    elif paths == "n":
-        print("Read the guide!")
-        webbrowser.open("https://mick.gdn/wiki/ussr.html")
-    else:
-        print("Read the guide!")
-        webbrowser.open("https://mick.gdn/wiki/ussr.html")
-
     os.system('python archlinux/setup/arch.py')
 
 def ussr_for_win():
-
-    paths = input("Did you configure the paths? [y/n]")
-    if paths == "y":
-        pass
-    elif paths == "n":
-        print("Read the guide!")
-        webbrowser.open("https://mick.gdn/wiki/ussr.html")
-    else:
-        print("Read the guide!")
-        webbrowser.open("https://mick.gdn/wiki/ussr.html")
-
     os.system('python windows/setup/win.py')
+
+def mc_server_arch():
+    os.system('python prerequisites/config.py')
+
+def mc_server_win():
+    os.system('python prerequisites/config.py')
 
 def main_menu():
     print("[1] Dependency setup for Windows")
     print("[2] Dependency setup for Arch")
     print("[3] USSR for Arch")
     print("[4] USSR for Windows")
+    print("[5] Install Minecraft Server for Arch")
+    print("[6] Install Minecraft Server for Windows")
     print("HEADS UP! Before you can proceed, please configure the paths if you haven't already.")
     print("Don't know how to? See the guide: https://mick.gdn/wiki/ussr.html")
     print("Choice: ")
@@ -70,5 +57,9 @@ if __name__ == "__main__":
             ussr_for_arch()
         elif choice == '4':
             ussr_for_win()
+        elif choice == '5':
+            mc_server_arch()
+        elif choice == '6':
+            mc_server_win()
         else:
             print("Invalid choice. Please choose again.")

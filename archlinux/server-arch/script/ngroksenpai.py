@@ -6,6 +6,7 @@ import sys
 import time
 
 LOCK_FILE = "ngroksenpai.lock"
+WEBHOOK_FILE_PATH = os.path.join('archlinux', 'server-arch', 'webhook.txt')  # Updated line
 
 def check_lock_file():
     return os.path.exists(LOCK_FILE)
@@ -43,6 +44,8 @@ def main():
     create_lock_file()
 
     try:
+        discord_webhook_url = get_discord_webhook_url(WEBHOOK_FILE_PATH)
+
         curl_commands = [
             "curl 127.0.0.1:4040/api/tunnels",
             "curl 127.0.0.1:4041/api/tunnels",
