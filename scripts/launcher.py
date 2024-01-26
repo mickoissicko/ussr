@@ -14,36 +14,35 @@ def clear_screen():
 
 def setup_dependencies_win():
     clear_screen()
-    batch_script_path = 'dependencies/prerequisites.bat'
+    batch_script_path = '../dependencies/prerequisites.bat'
     subprocess.run([batch_script_path], shell=True)
-    os.chdir('..')
+    os.chdir('../scripts')
 
 def setup_dependencies_arch():
     clear_screen()
-    os.chdir('dependencies')
+    os.chdir('../dependencies')
     os.system('chmod +x install.sh')
     os.system('./install.sh')
-    os.chdir('..')
+    os.chdir('../scripts')
 
 def ussr_for_arch():
     clear_screen()
-    os.chdir('scripts')
     os.system('chmod +x start.sh')
     os.system('./start.sh')
-    os.chdir('..')
+    os.chdir('../scripts')
 
 def ussr_for_win():
     clear_screen()
-    batch_script_path = 'scripts/start.bat'
+    batch_script_path = 'start.bat'
     subprocess.run([batch_script_path], shell=True)
-    os.chdir('..')
+    os.chdir('../scripts')
 
 def mc_server():
     clear_screen()
-    os.system('python dependencies/config.py')
+    os.system('python ../dependencies/config.py')
 
 def main_menu():
-    os.chdir('..')
+    os.chdir('../scripts')
     clear_screen()
     print("SETUP PAGE -- LAUNCHER, MAIN MENU")
     print("[1] Dependency setup for Windows")

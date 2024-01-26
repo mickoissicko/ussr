@@ -3,10 +3,6 @@
 cd ../config
 
 if exist lock.pa (
-    echo Lock file detected. Going back to scripts directory and running start.bat.
-    cd ../scripts
-    call start.bat
-    echo Exiting main batch script.
     exit /b
 ) else (
     echo.
