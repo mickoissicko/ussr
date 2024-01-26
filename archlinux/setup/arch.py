@@ -5,6 +5,7 @@ import platform
 import webbrowser
 
 def main_menu():
+    print("SETUP PAGE -- *NIX/DARWIN")
     print("[1] Launch USSR")
     print("[2] Use Ngrok")
 

@@ -32,6 +32,7 @@ def mc_server():
     os.system('python prerequisites/config.py')
 
 def main_menu():
+    print("SETUP PAGE -- LAUNCHER, MAIN MENU")
     print("[1] Dependency setup for Windows")
     print("[2] Dependency setup for Arch")
     print("[3] USSR for Arch")

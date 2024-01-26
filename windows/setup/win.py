@@ -13,6 +13,8 @@ def clear_screen():
         print("Ok, but serious... not Linux, Darwin, or Windows?! Wuh da heellll.?!")
 
 def main_menu():
+    clear_screen()
+    print("SETUP PAGE -- WINDOWS")
     print("[1] Launch USSR")
     print("[2] Use Ngrok")
 
