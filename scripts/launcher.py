@@ -14,21 +14,6 @@ def clear_screen():
     else:
         print("Couldn't clear screen. Please stop using HelloKitty OS.")
 
-def setup_dependencies_win():
-    clear_screen()
-    print("THIS MODE IS DEPRECATED, PLEASE USE THE LAUNCHER.BAT SCRIPT!!")
-    batch_script_path = '../dependencies/prerequisites.bat'
-    subprocess.run([batch_script_path], shell=True)
-    os.chdir('../scripts')
-
-def setup_dependencies_arch():
-    clear_screen()
-    print("THIS MODE IS DEPRECATED, PLEASE USE THE LAUNCHER.SH SCRIPT!!")
-    os.chdir('../dependencies')
-    os.system('chmod +x install.sh')
-    os.system('./install.sh')
-    os.chdir('../scripts')
-
 def ussr_for_arch():
     clear_screen()
 
@@ -189,29 +174,21 @@ def main_menu():
         os.chdir('../scripts')
         clear_screen()
         print("SETUP PAGE -- LAUNCHER, MAIN MENU")
-        print("[1] Dependency setup for Windows")
-        print("[2] Dependency setup for Arch")
-        print("[3] USSR for Arch")
-        print("[4] USSR for Windows")
-        print("[5] Install Minecraft Server")
-        print("[6] Configure USSR")
+        print("[1] USSR for Arch")
+        print("[2] USSR for Windows")
+        print("[3] Install Minecraft Server")
+        print("[4] Configure USSR")
         print("[X] Quit")
-        print("HEADS UP! Before you can proceed, please configure the paths if you haven't already.")
-        print("Don't know how to? See the guide: https://mick.gdn/wiki/ussr.html")
 
-        choice = input("Choice: ")
+        choice = input("Choose a menu: ")
 
         if choice == '1':
-            setup_dependencies_win()
-        elif choice == '2':
-            setup_dependencies_arch()
-        elif choice == '3':
             ussr_for_arch()
-        elif choice == '4':
+        elif choice == '2':
             ussr_for_win()
-        elif choice == '5':
+        elif choice == '3':
             mc_server()
-        elif choice == '6':
+        elif choice == '4':
             configr()
         elif choice.lower() == 'x' or 'X':
             break 
