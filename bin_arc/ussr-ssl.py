@@ -50,7 +50,7 @@ def start():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     mc_dir = os.path.join(script_dir, '../bin/.mc')
-    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', 'nogui', os.path.join(mc_dir, 'server.jar')]
+    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', os.path.join(mc_dir, 'server.jar'), 'nogui']
     subprocess.Popen(start_command, cwd=mc_dir)
 
     time.sleep(27)
