@@ -226,7 +226,7 @@ def main_menu():
         print("[4] Configure USSR")
         print("[X] Quit")
         print("launcher: v1.1")
-        print("ussr: v3.3.5")
+        print("ussr: v3.3.6")
 
         choice = input("Choose a menu: ")
 
