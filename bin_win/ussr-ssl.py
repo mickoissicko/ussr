@@ -6,6 +6,8 @@ import requests
 from flask import Flask, render_template
 import time
 
+os.chdir('../bin_win')
+
 conf_file_path = '../config/conf.txt'
 use_ngrok = False
 
@@ -19,7 +21,7 @@ with open(conf_file_path, 'r') as conf_file:
             break
 
 if use_ngrok:
-    ngroksenpai_script_path = 'script/ngroksenpai.py'
+    ngroksenpai_script_path = '../bin_win/script/ngroksenpai.py'
     subprocess.Popen(['python', ngroksenpai_script_path])
 
 app = Flask(__name__)
@@ -50,13 +52,17 @@ def start():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     mc_dir = os.path.join(script_dir, '../bin/.mc')
-    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', 'nogui', os.path.join(mc_dir, 'server.jar')]
-    subprocess.Popen(start_command, cwd=mc_dir)
+    start_command = ['java', '-jar', '-Xms256M', '-Xmx5G', os.path.join(mc_dir, 'server.jar'), 'nogui']
 
-    time.sleep(27)
-    
-    send_discord_message('``server started``')
-    return "Server started successfully!"
+    try:
+        subprocess.Popen(start_command, cwd=mc_dir)
+        time.sleep(27)
+        send_discord_message('``server started``')
+        return "Server started successfully!"
+    except Exception as e:
+        error_message = f"Error starting server: {str(e)}"
+        send_discord_message(error_message)
+        return error_message
 
 @app.route('/stop')
 def stop():

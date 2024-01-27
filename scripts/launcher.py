@@ -39,11 +39,11 @@ def ussr_for_arch():
         pass
 
     elif yesnop.lower() == 'n':
+        webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
+
         print("INFO: Your NGROK Authtoken is available at:")
         print("https://dashboard.ngrok.com/get-started/your-authtoken")
         ngrok_token = input("Enter NGROK authentication token: ")
-
-        webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
 
         with open('../config/token.txt', 'w') as file:
             file.write(f"{ngrok_token}")
@@ -93,11 +93,11 @@ def ussr_for_win():
         pass
 
     elif yesnop.lower() == 'n':
+        webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
+
         print("INFO: Your NGROK Authtoken is available at:")
         print("https://dashboard.ngrok.com/get-started/your-authtoken")
         ngrok_token = input("Enter NGROK authentication token: ")
-
-        webbrowser.open("https://dashboard.ngrok.com/get-started/your-authtoken")
 
         with open('../config/token.txt', 'w') as file:
             file.write(f"{ngrok_token}")
@@ -131,10 +131,12 @@ def ussr_for_win():
 
     with open('../config/token.txt', 'r') as file:
         ngrok_token = file.read().strip()
-    os.system(f'ngrok config add-authtoken {ngrok_token}')
+
+    os.chdir('../ngrok')
+    os.system(f'ngrok.exe config add-authtoken {ngrok_token}')
     
-    os.system('./start.bat')
-    os.chdir('../scripts')	
+    os.chdir('../bin_win')
+    os.system('python ussr-ssl.py')
 
 def mc_server():
     clear_screen()

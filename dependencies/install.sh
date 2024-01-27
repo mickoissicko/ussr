@@ -10,7 +10,8 @@ if [ -e lock.pa ]; then
     exit 0
 fi
 
-sudo pacman -Sy python python-pip
+sudo pacman -Sy jdk-openjdk
+sudo pacman -S python python-pip
 sudo pacman -S python-requests
 sudo pacman -S python-flask
 sudo pacman -S git
