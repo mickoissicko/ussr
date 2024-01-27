@@ -219,12 +219,14 @@ def main_menu():
     while True:
         os.chdir('../scripts')
         clear_screen()
-        print("SETUP PAGE -- LAUNCHER, MAIN MENU")
+
         print("[1] USSR for Arch")
         print("[2] USSR for Windows")
         print("[3] Install Minecraft Server")
         print("[4] Configure USSR")
         print("[X] Quit")
+        print("launcher: v1.1")
+        print("ussr: v3.3.5")
 
         choice = input("Choose a menu: ")
 
