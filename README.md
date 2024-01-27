@@ -1,4 +1,3 @@
-# The USSR
 ### What is it?
 
 I started this program as a barebones, small, and lightweight tool to allow my friends to start/stop the SMP if I am unable to do it.
@@ -37,6 +36,10 @@ The size of the program after installation on:
 * **Linux/Darwin**: `34.93 MB`
 * *Includes*: `Ngrok`, `MCRCON`, `Flask`, `Requests`
 * *Excludes*: `C-URL`, `Tar`, `PyPi`, `Python`
+
+Please note that the Wiki contains steps to manually install/configure the USSR. You should **only** check out the wiki if you use MacOS, or if you use any Linux distribution that isn't Arch. (Gentoo, Debian, Alpine, etc.)
+
+The Wiki may also be used to troubleshoot some steps. However, if you use a Windows machine or Archlinux, installing it via the shell script (for Arch,) and the batch script (for Windows,) should work just fine.
 
 # Compatibility
 This application works on:
