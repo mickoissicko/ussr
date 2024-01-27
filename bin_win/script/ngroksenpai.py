@@ -66,13 +66,13 @@ def main():
 
         target_string = "tcp://"
 
-        webhook_file_path = '../config/webhook.txt'
+        webhook_file_path = '../config/url.txt'
         if os.path.exists(webhook_file_path):
             with open(webhook_file_path, 'r') as webhook_file:
 
                 discord_webhook_url = webhook_file.read().strip() # webhook func
         else:
-            print("Error: webhook.txt not found. Please create the file with your Discord webhook URL and rerun the application.")
+            print("Error: url.txt not found. Please create the file with your Discord webhook URL and rerun the application.")
             sys.exit(1)
 
         region_mapping = {

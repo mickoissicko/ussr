@@ -43,7 +43,7 @@ def ussr_for_arch():
     print("OPTIONAL: If you are not using a webhook, feel free to use Nn to skip.")
     print("TIP: It is recommended to use a webhook if you will be using tools such as Tmux!")
 
-    yesnop = input("Did you configure webhook URL? [Y/N/Nn]")
+    yesnop = input("Did you configure the webhook URL so that NGROKSENPAI may send the Ngrok IPs to Discord? [Y/N/Nn]")
 
     if yesnop.lower() == 'y':
         pass
@@ -51,7 +51,30 @@ def ussr_for_arch():
     elif yesnop.lower() == 'n':
         webhook_url = input("Enter webhook URL: ")
 
-        with open('../config/webhook.txt', 'w') as file:
+        with open('../config/url.txt', 'w') as file:
+            file.write(f"{webhook_url}")
+
+    elif yesnop.lower() == 'Nn':
+        pass
+    
+    else:
+        print("Only 'y' or 'n'. Indecisive enough?")
+
+    with open('../config/token.txt', 'r') as file:
+        ngrok_token = file.read().strip()
+
+    # next prompt
+    clear_screen()
+    print("OPTIONAL: If you are not using a webhook, use Nn to skip.")
+    yesnop = input("Did you configure the webhook URL so that USSR can send messages alarming the players about server status (e.g server starting, server online, server stopping)? [Y/N/Nn]")
+
+    if yesnop.lower() == 'y':
+        pass
+
+    elif yesnop.lower() == 'n':
+        webhook_url = input("Enter webhook URL (for sending status): ")
+
+        with open('../config/stat.txt', 'w') as file:
             file.write(f"{webhook_url}")
 
     elif yesnop.lower() == 'Nn':
@@ -63,7 +86,7 @@ def ussr_for_arch():
     with open('../config/token.txt', 'r') as file:
         ngrok_token = file.read().strip()
     os.system(f'ngrok config add-authtoken {ngrok_token}')
-    
+
     os.system('chmod +x start.sh')
     os.system('./start.sh')
     os.chdir('../scripts')
@@ -97,7 +120,7 @@ def ussr_for_win():
     print("OPTIONAL: If you are not using a webhook, feel free to use Nn to skip.")
     print("TIP: It is recommended to use a webhook if you will be using tools such as Tmux!")
 
-    yesnop = input("Did you configure webhook URL? [Y/N/Nn]")
+    yesnop = input("Did you configure the webhook URL so that NGROKSENPAI may send the Ngrok IPs to Discord? [Y/N/Nn]")
 
     if yesnop.lower() == 'y':
         pass
@@ -105,7 +128,7 @@ def ussr_for_win():
     elif yesnop.lower() == 'n':
         webhook_url = input("Enter webhook URL: ")
 
-        with open('../config/webhook.txt', 'w') as file:
+        with open('../config/url.txt', 'w') as file:
             file.write(f"{webhook_url}")
 
     elif yesnop.lower() == 'Nn':
@@ -116,6 +139,31 @@ def ussr_for_win():
 
     with open('../config/token.txt', 'r') as file:
         ngrok_token = file.read().strip()
+    os.system(f'ngrok config add-authtoken {ngrok_token}')
+
+    # next prompt
+    clear_screen()
+    print("OPTIONAL: If you are not using a webhook, use Nn to skip.")
+    yesnop = input("Did you configure the webhook URL so that USSR can send messages alarming the players about server status (e.g server starting, server online, server stopping)? [Y/N/Nn]")
+
+    if yesnop.lower() == 'y':
+        pass
+
+    elif yesnop.lower() == 'n':
+        webhook_url = input("Enter webhook URL (for sending status): ")
+
+        with open('../config/stat.txt', 'w') as file:
+            file.write(f"{webhook_url}")
+
+    elif yesnop.lower() == 'Nn':
+        pass
+    
+    else:
+        print("Only 'y' or 'n'. Indecisive enough?")
+
+    with open('../config/token.txt', 'r') as file:
+        ngrok_token = file.read().strip()
+    os.system(f'ngrok config add-authtoken {ngrok_token}')
 
     os.chdir('../ngrok')
     os.system(f'ngrok.exe config add-authtoken {ngrok_token}')
@@ -156,8 +204,6 @@ def configr():
 
     with open(conf_file_path, 'r') as file:
         lines = file.readlines()
-
-    user_input = input("Do you want to enable automatic NGROK start? [Y/N]")
 
     if user_input == 'y':
         lines[6] = 'autongrok=True\n'

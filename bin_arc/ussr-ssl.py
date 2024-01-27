@@ -24,7 +24,7 @@ if use_ngrok:
 
 app = Flask(__name__)
 
-DISCORD_WEBHOOK_URL_FILE = '../config/webhook.txt'
+DISCORD_WEBHOOK_URL_FILE = '../config/stat.txt'
 
 def get_discord_webhook_url():
     webhook_url = None
