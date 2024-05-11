@@ -14,7 +14,7 @@ My friend gets ~200ms average on Aternos, but on Ngrok's Singapore location, aro
 
 ### How do I use it?
 
-Check the [official Wiki](https://mick.gdn/dir.html)
+Check the [official Wiki](https://mick.gdn/wiki)
 
 # Info
 You need to kill all Ngrok processes before re-running / restarting the USSR. After the USSR process is terminated, it itself does not stop the Ngrok processes which is a problem. Ngroksenpai freaks out and doesn't correctly send all the IPs.
