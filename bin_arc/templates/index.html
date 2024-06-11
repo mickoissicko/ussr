@@ -223,6 +223,9 @@
                 <div class="control-button" onclick="stop()">
                     <a href="#">Stop</a>
                 </div>
+                <div class="control-button" onclick="killtunnels()">
+                    <a href="#">Kill tunnels</a>
+                </div>
                 <div class="control-button">
                     <a href="creative_mode.mp4" target="_blank">Creative Mode</a>
                 </div>
@@ -284,6 +287,18 @@
         try {
 
             const response = await fetch('/stop');
+            const message = await response.text();
+
+            console.log(message);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function killtunnels() {
+        try {
+
+            const response = await fetch('/purge');
             const message = await response.text();
 
             console.log(message);
