@@ -10,130 +10,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <title>Minecraft Server Panel</title>
     <style>
-body {
-    overflow: hidden;
-    font-family: 'Comfortaa', cursive;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #0d0d0d;
-    color: #ffffff;
-}
+    body {
+        overflow: hidden;
+        font-family: 'Comfortaa', cursive;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #0d0d0d;
+        color: #ffffff;
+    }
 
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-    background: linear-gradient(to right, #3498db, #8e44ad);
-    -webkit-background-clip: text; /* Safari 3 and Chrome */
-    background-clip: text; /* Standard property */
-    color: transparent;
-}
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #3498db, #8e44ad);
+        -webkit-background-clip: text; /* Safari 3 and Chrome */
+        background-clip: text; /* Standard property */
+        color: transparent;
+    }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    background: linear-gradient(to right, #3498db, #8e44ad);
-    -webkit-background-clip: text; /* Safari 3 and Chrome */
-    background-clip: text; /* Standard property */
-    color: transparent;
-}
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #3498db, #8e44ad);
+        -webkit-background-clip: text; /* Safari 3 and Chrome */
+        background-clip: text; /* Standard property */
+        color: transparent;
+    }
 
-.sexygrad {
-    background: linear-gradient(to right, #3498db, #8e44ad);
-    -webkit-background-clip: text; /* Safari 3 and Chrome */
-    background-clip: text; /* Standard property */
-    color: transparent;
-}
+    .sexygrad {
+        background: linear-gradient(to right, #3498db, #8e44ad);
+        -webkit-background-clip: text; /* Safari 3 and Chrome */
+        background-clip: text; /* Standard property */
+        color: transparent;
+    }
 
-.sexygrad::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #3498db, #8e44ad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    z-index: -1;
-}
+    .sexygrad::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #3498db, #8e44ad);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        z-index: -1;
+    }
 
-.sexygrad {
-    position: relative;
-    z-index: 1;
-}
+    .sexygrad {
+        position: relative;
+        z-index: 1;
+    }
 
-.center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.control-button:hover {
-    background-color: #8e44ad;
-}
+    .control-button:hover {
+        background-color: #8e44ad;
+    }
 
-.control-button a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-}
+    .control-button a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+    }
 
-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #ffcc6f;
-    color: #0d0d0d;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 15px;
-}
+    button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #ffcc6f;
+        color: #0d0d0d;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 15px;
+    }
 
-button:hover {
-    background-color: #ffa733;
-}
+    button:hover {
+        background-color: #ffa733;
+    }
 
 
-.controls-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
+    .controls-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
 
-.control-button {
-    width: 150px;
-    height: 40px;
-    background-color: #3498db;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .control-button {
+        width: 150px;
+        height: 40px;
+        background-color: #3498db;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-#centeredTipText {
+    #centeredTipText {
         position: absolute;
         margin: 66px;
         color: red;
@@ -142,73 +142,68 @@ button:hover {
     }
 
     @keyframes flashText {
-        0% {
-            color: red;
-        }
-        100% {
-            color: orange;
-        }
+        0% {color: red;}
+        100% {color: orange;}
     }
 
     
-#info-box {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    text-align: left;
-    max-width: 400px;
-}
+    #info-box {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        text-align: left;
+        max-width: 400px;
+    }
 
-#info-box a {
-    color: #3498db;
-    text-decoration: none;
-}
+    #info-box a {
+        color: #3498db;
+        text-decoration: none;
+    }
 
-#info-box a:hover {
-    text-decoration: underline;
-}
+    #info-box a:hover {
+        text-decoration: underline;
+    }
 
-#info-button {
-    position: absolute;
-    left: 142px;
-    background-color: #ffcc6f;
-    color: #0d0d0d;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 15px;
-    margin-left: 10px;
-}
+    #info-button {
+        position: absolute;
+        left: 142px;
+        background-color: #ffcc6f;
+        color: #0d0d0d;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 15px;
+        margin-left: 10px;
+    }
 
-#info-button:hover {
-    background-color: #ffa733;
-}
+    #info-button:hover {
+        background-color: #ffa733;
+    }
 
+    #info-box-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left;
+        max-width: 400px;
+        z-index: 999;
+    }
 
-        #info-box-container {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            max-width: 400px;
-            z-index: 999;
-        }
-
-        #close-info {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
+    #close-info {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
 
     </style>
 </head>
@@ -228,8 +223,8 @@ button:hover {
                 <div class="control-button" onclick="stop()">
                     <a href="#">Stop</a>
                 </div>
-                <div class="control-button" onclick="redirectToYouTube()">
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Creative Mode</a>
+                <div class="control-button">
+                    <a href="creative_mode.mp4" target="_blank">Creative Mode</a>
                 </div>
             </div>
             <p id="centeredTipText">
@@ -258,57 +253,50 @@ button:hover {
     </div>
     
     <script>
-
         function toggleInfoBox() {
         var infoBox = document.getElementById('info-box-container');
         infoBox.style.display = (infoBox.style.display === 'none' || infoBox.style.display === '') ? 'block' : 'none';
     }
 
-    /* NON FUNCTIONAL // PLACEHOLDER // DEBUGGING TEST SCRIPT */
-                async function test() {
-
-                try {
-                const response = await fetch ('/test');
-                const message = await response.text();
-
-                console.log(message);
-            } catch (error) {
-                console.error(error);
-            }
+    async function test() {
+        try {
+            const response = await fetch ('/test');
+            const message = await response.text();
+            console.log(message);
+        } catch (error) {
+            console.error(error);
         }
+    }
 
-        async function start() {
-            try {
+    async function start() {
+        try {
 
-                const response = await fetch('/start');
-                const message = await response.text();
+            const response = await fetch('/start');
+            const message = await response.text();
 
-                console.log(message);
-            } catch (error) {
-                console.error(error);
-            }
+            console.log(message);
+        } catch (error) {
+            console.error(error);
         }
+    }
 
-        async function stop() {
-            try {
+    async function stop() {
+        try {
 
-                const response = await fetch('/stop');
-                const message = await response.text();
+            const response = await fetch('/stop');
+            const message = await response.text();
 
-                console.log(message);
-            } catch (error) {
-                console.error(error);
-            }
+            console.log(message);
+        } catch (error) {
+            console.error(error);
         }
+    }
 
-        function redirectToYouTube() {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-
-        }
-        function redirectToHome() {
-            window.location.href = "https://mick.gdn";
-        }
+    function redirectToHome() {
+        window.location.href = "https://mick.gdn";
+    }
     </script>
 </body>
 
 </html>
+
