@@ -76,5 +76,15 @@ def stop():
     send_discord_message('``server stopped``')
     return "Stopping server..."
 
+@app.route('/purge')
+def purge():
+    try:
+        os.system('taskkill -f -im ngrok.exe')
+    except Exception as e:
+        print(f'{e}');
+        os.system('taskkill -f -im ngrok')
+    except Exception as e:
+        print(f'Could not kill ngrok: {e}')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=443, debug=True)
