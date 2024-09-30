@@ -1,3 +1,10 @@
+# DISCONTINUED
+THIS PROJECT HAS BEEN DISCONTINUED AS OF TODAY (30TH SEP, 2024).
+
+PLEASE USE USSRR, OR USSR-REBORN. IT IS A COMPLETE RECODE OF THE USSR; A BETTER, FASTER, AND IMPROVED PROJECT.
+
+EVERYTHING ELSE HERE WILL BE ARCHIVED!
+
 ### What is it?
 
 I started this program as a barebones, small, and lightweight tool to allow my friends to start/stop the SMP if I am unable to do it.
